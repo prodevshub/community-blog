@@ -1,53 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      style="display: none"
-    >
-    <symbol id="clower" viewBox="0 0 1218.000000 1280.000000"
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="1218.000000pt" height="1280.000000pt" viewBox="0 0 1218.000000 1280.000000"
  preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.15, written by Peter Selinger 2001-2017
+</metadata>
 <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-fill="#ffffff" stroke="none">
+fill="#000000" stroke="none">
 <path d="M8115 12790 c-210 -24 -387 -76 -589 -173 -397 -191 -775 -484 -1017
 -787 -160 -200 -369 -521 -409 -626 -41 -110 -86 -470 -126 -1013 -11 -138
 -21 -224 -25 -210 -4 13 -15 89 -24 169 -84 753 -155 1082 -295 1378 -103 215
@@ -78,7 +39,4 @@ fill="#ffffff" stroke="none">
 -172 244 -272 367 -415 511 -297 298 -622 481 -969 545 -128 23 -413 33 -541
 19z"/>
 </g>
-    </symbol>
-    </svg>
-  </body>
-</html>
+</svg>
