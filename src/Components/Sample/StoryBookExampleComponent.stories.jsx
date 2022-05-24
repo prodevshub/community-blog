@@ -27,25 +27,24 @@ Primary.args = {
   primary: true,
   label: "Labas",
   color: "red",
-  backgroundColor: "lightblue",
+  // backgroundColor: "black",
 };
 
 export const Labas = Template.bind({});
 Labas.args = {
   fontSize: "50px",
   fontWeight: "900",
-  textAlign: "center",
-  backgroundColor: "lightblue",
+  textAlign: "right",
+  backgroundColor: "green",
 };
 
 //reusing previous story's args in another
 export const DarVienas = Template.bind({});
 DarVienas.args = {
   ...Primary.args,
-  fontSize: "50px",
-  fontWeight: "900",
+  fontSize: "30px",
   textAlign: "center",
-  backgroundColor: "lightblue",
+  backgroundColor: "grey",
 };
 
 //modifikuojamas vienas komponento elementas(footer)
@@ -79,9 +78,8 @@ export const PrimarySecondary = () => {
     <StoryBookExampleComponent
       bgColor={bgColor}
       primary={isPrimary}
-      onChange={handleOnChange}
-    >
-      {value}
-    </StoryBookExampleComponent>
+      handleOnChange={handleOnChange}
+      label={value}
+    ></StoryBookExampleComponent>
   );
 };
