@@ -1,3 +1,4 @@
+//  function for header animation
 function sticky() {
     const header = document.querySelector('.header');
     const stick = header.offsetTop;

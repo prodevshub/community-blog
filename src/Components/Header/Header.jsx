@@ -1,5 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
 import './Header.scss';
+import React from 'react';
 import '../../Functions/Sticky';
 
 function Header() {

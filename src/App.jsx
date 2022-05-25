@@ -6,7 +6,7 @@ import sticky from './Functions/Sticky';
 
 function App() {
     const name = 'Martynas';
-    window.onscroll = () => sticky();
+    window.onscroll = () => sticky(); // calling function for header animation
     return (
         <div className="App">
             <Header />
