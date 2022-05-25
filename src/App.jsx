@@ -1,14 +1,13 @@
-import "./App.css";
-import StoryBookExampleComponent from "./Components/Sample"
-
+import React from 'react';
+import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello World</h1>
-      <StoryBookExampleComponent></StoryBookExampleComponent>
-    </div>
-  );
+    const name = 'Martynas';
+    return (
+        <div className="App">
+            <h1>Hello World</h1>
+        </div>
+    );
 }
 
 export default App;
