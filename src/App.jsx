@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import './App.scss';
-import Header from './Components/Header/Header.jsx';
+import Header from './Components/Header/Header';
 import sticky from './Functions/Sticky';
 
 function App() {
