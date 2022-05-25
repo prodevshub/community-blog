@@ -64,13 +64,21 @@
       cursor: pointer;
     }
 
-    svg:hover {
+    svg:hover  {
       transition: transform 1s;
       -webkit-transition: transform 1s;
       -moz-transition: transform 1s;
       -ms-transition: transform 1s;
       -o-transition: transform 1s;
       transform: rotate(30deg);
+    }
+    svg:active{
+      transition: transform .5s;
+      -webkit-transition: transform 1s;
+      -moz-transition: transform 1s;
+      -ms-transition: transform 1s;
+      -o-transition: transform 1s;
+      transform: scale(0.7);
     }
   }
 
