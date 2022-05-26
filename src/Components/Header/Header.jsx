@@ -1,19 +1,19 @@
-import './Header.scss';
-import React, { useEffect, useRef } from 'react';
+import './Header.scss'
+import React, { useEffect, useRef } from 'react'
 
-function Header() {
-    const stickyHeader = useRef(null);
+const Header = () => {
+    const stickyHeader = useRef(null)
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if (stickyHeader.current !== null) {
                 if (window.pageYOffset > stickyHeader.current.offsetTop) {
-                    stickyHeader.current.classList.add('sticky');
+                    stickyHeader.current.classList.add('sticky')
                 } else {
-                    stickyHeader.current.classList.remove('sticky');
+                    stickyHeader.current.classList.remove('sticky')
                 }
             }
-        });
-    });
+        })
+    })
     return (
         <header className="header" ref={stickyHeader}>
             <div className="header__logo">
@@ -37,6 +37,6 @@ function Header() {
                 </a>
             </div>
         </header>
-    );
+    )
 }
-export default Header;
+export default Header
