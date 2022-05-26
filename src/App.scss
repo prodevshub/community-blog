@@ -1,10 +1,11 @@
-//  padding style for main block with sticky header
+//  padding style for main block with sticky header 
+// if block under header will have another class or tag, please replace 'main' below with its name
 .sticky + main {
     padding-top: 150px;
     @media screen and (max-width: 912px) {
         padding-top: 130px;
       }
-      @media screen and (max-width: 540px) {
-        padding-top: 100px;
+    @media screen and (max-width: 540px) {
+    padding-top: 100px;
       }
 }
