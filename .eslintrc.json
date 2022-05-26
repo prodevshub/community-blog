@@ -27,7 +27,7 @@
     "no-use-before-define": "off",
     "jsx-a11y/media-has-caption": "off",
     "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js",".jsx", ".tsx"] }],
     "no-unused-vars": "off",
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
     "no-param-reassign": "off",
