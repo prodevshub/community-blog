@@ -58,8 +58,8 @@
       -moz-transition: all 1s;
       -ms-transition: all 1s;
       -o-transition: all 1s;
-      width: 35px;
-      height: 35px;
+      width: 55px;
+      height: 55px;
       fill: #fff;
       cursor: pointer;
     }
@@ -97,8 +97,14 @@
 
   @media screen and (max-width: 912px) {
     background-position: center 41%;
+    &__logo {
+      margin-left: 7%;
 
-    //height: 10vh;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
     &__title {
       font-size: 1rem;
 
