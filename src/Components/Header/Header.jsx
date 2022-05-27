@@ -24,10 +24,8 @@ const Header = () => {
                 </a>
             </div>
             <div className="header__title">
-                <h1>
-                    <span>Lucky </span>
-                    community blog
-                </h1>
+                <span className="header__title--italic">Lucky </span>
+                community blog
                 <hr />
                 <span className="header__title-description">to notice, observe and enjoy...</span>
             </div>
