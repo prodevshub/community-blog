@@ -1,46 +1,67 @@
 import React, { useEffect } from 'react'
 import './Modal.scss'
 
-const handleKeyPress = (onClose) => (e) => {
-    if (e.keyCode === 27) {
-        onClose() // Close the modal on ESC key press
-    }
-}
+// Component initialize example
+// import Modal, set useState [show, setShow] and doSomething() function in your component
+// Insert Modal component:
+// <Modal show={show} title="Modal Title" onSubmit={doSomething} onClose={() => setShow(false)}>
+//      <p>children</p>
+// </Modal>
 
 const Modal = ({
     show, title, children, onSubmit, onClose
 }) => {
+    // start listening keydown events
     useEffect(() => {
-        document.addEventListener('keydown', handleKeyPress(onClose))
-        return () => {
-            document.removeEventListener('keydown', handleKeyPress(onClose))
+        if (show) {
+            document.addEventListener('keydown', logKey)
         }
-    }, [])
+        return () => {
+            document.removeEventListener('keydown', logKey)
+        }
+    }, [show])
 
+    function logKey(e) {
+        if (e.code === 'Escape') {
+            handleClose(onClose)
+        }
+    }
+
+    // do not show component if show is false
     if (!show) return null
 
+    // fade out Modal and close or submit
+    const handleClose = (action) => {
+        document.querySelector('#modal').classList.add('modal--close')
+        setTimeout(() => {
+            action()
+        }, 150)
+    }
+
     return (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
+            id="modal"
             className="modal"
             role="dialog"
-            onClick={onClose}
-            onKeyDown={handleKeyPress(onClose)}
+            onClick={() => handleClose(onClose)}
         >
             {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
             <div
-                className="modal-content"
+                id="dialog"
+                className="modal__dialog"
                 role="document"
-                onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside
+                onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside dialog
             >
-                <div className="modal-header">
-                    <h4 className="modal-title">{title}</h4>
+                <div className="modal__header">
+                    <h3 className="modal__title">{title}</h3>
                 </div>
-                <div className="modal-body">{children}</div>
-                <div className="modal-footer">
-                    <button className="btn btn-primary" onClick={onSubmit}>
+                <div className="modal__body">{children}</div>
+                <div className="modal__footer">
+                    <button className="btn" onClick={() => handleClose(onSubmit)}>
                         Submit
                     </button>
-                    <button className="btn btn-primary" onClick={onClose}>
+                    <button className="btn" onClick={() => handleClose(onClose)}>
                         Close
                     </button>
                 </div>
