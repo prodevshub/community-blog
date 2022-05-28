@@ -1,7 +1,9 @@
 import './Header.scss'
 import React, { useEffect, useRef } from 'react'
 
-const Header = () => {
+const Header = ({
+    paddingTop, paddingBottom, color, fontSize, fontFamily, primary, height, width
+}) => {
     const stickyHeader = useRef(null)
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -15,21 +17,64 @@ const Header = () => {
         })
     })
     return (
-        <header className="header" ref={stickyHeader}>
-            <div className="header__logo">
+        <header
+            style={{
+                paddingBottom, paddingTop, color, fontSize, fontFamily
+            }}
+            className="header"
+            ref={stickyHeader}
+        >
+            <div
+                style={{
+                    color, fontSize, fontFamily
+                }}
+                className="header__logo"
+            >
                 <a href="#">
-                    <svg>
+                    <svg
+                        fill={{ color }}
+                        style={{
+                            height, width
+                        }}
+                    >
                         <use xlinkHref="#clower" />
                     </svg>
                 </a>
             </div>
-            <div className="header__title">
-                <span className="header__title--italic">Lucky </span>
+            <div
+                style={{
+                    color, fontSize
+                }}
+                className="header__title"
+            >
+                <span
+                    style={{
+                        color, fontSize, fontFamily
+                    }}
+                    className="header__title--italic"
+                >
+                    Lucky
+                    {' '}
+
+                </span>
                 community blog
                 <hr />
-                <span className="header__title-description">to notice, observe and enjoy...</span>
+                <span
+                    style={{
+                        color, fontSize, fontFamily
+                    }}
+                    className="header__title-description"
+                >
+                    to notice, observe and enjoy...
+
+                </span>
             </div>
-            <div className="header__nav">
+            <div
+                style={{
+                    color
+                }}
+                className="header__nav"
+            >
                 <a href="#menu">
                     &#9776;
                 </a>
