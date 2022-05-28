@@ -2,17 +2,9 @@ import React, { useEffect } from 'react'
 import Button from '../Button'
 import './Modal.scss'
 
-// Component initialize example
-// import Modal, set useState [show, setShow] and doSomething() function in your component
-// Insert Modal component:
-// <Modal show={show} title="Modal Title" onSubmit={doSomething} onClose={() => setShow(false)}>
-//      <p>children</p>
-// </Modal>
-
 const Modal = ({
     show, title, children, onSubmit, onClose
 }) => {
-    // start listening keydown events
     useEffect(() => {
         if (show) {
             document.addEventListener('keydown', logKey)
@@ -28,43 +20,37 @@ const Modal = ({
         }
     }
 
-    // do not show component if show is false
     if (!show) return null
 
-    // fade out Modal and close or submit
     const handleClose = (action) => {
-        document.querySelector('#modal').classList.add('modal--close')
+        document.querySelector('.modal-dialog').classList.add('modal-dialog--close')
+        document.querySelector('.modal').classList.add('modal--close')
         setTimeout(() => {
             action()
-        }, 150)
+        }, 300)
     }
 
     return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-        <div
-            id="modal"
-            className="modal"
-            role="dialog"
-            onClick={() => handleClose(onClose)}
-        >
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
-            <div
-                id="dialog"
-                className="modal__dialog"
-                role="document"
-                onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking inside dialog
-            >
-                <div className="modal__header">
-                    <h3 className="modal__title">{title}</h3>
-                </div>
-                <div className="modal__body">{children}</div>
-                <div className="modal__footer">
-                    <Button className="modal-btn modal-btn-primary modal-mr" onClick={() => handleClose(onSubmit)}>
-                        Submit
-                    </Button>
-                    <Button className="modal-btn modal-btn-secondary" onClick={() => handleClose(onClose)}>
-                        Close
-                    </Button>
+        <div className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="ModalScrollableTitle" aria-hidden="true" onClick={() => handleClose(onClose)}>
+            <div className="modal-dialog modal-dialog-scrollable" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="ModalScrollableTitle">{title}</h5>
+                        <Button type="button" className="cust-close" onClick={() => handleClose(onClose)} aria-label="Close">
+                            &times;
+                        </Button>
+                    </div>
+                    <div className="modal-body">
+                        {children}
+                    </div>
+                    <div className="modal-footer">
+                        <Button type="button" className="cust-btn cust-btn-secondary" onClick={() => handleClose(onClose)} ariaLabel="Close">
+                            Close
+                        </Button>
+                        <Button type="button" className="cust-btn cust-btn-primary" onClick={() => handleClose(onSubmit)} ariaLabel="Submit">
+                            Submit
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>
