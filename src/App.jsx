@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Modal from './Modal'
+import Modal from './Components/Modal'
 
 const App = () => {
     // Modal props

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Button from '../Button'
 import './Modal.scss'
 
 // Component initialize example
@@ -58,16 +59,15 @@ const Modal = ({
                 </div>
                 <div className="modal__body">{children}</div>
                 <div className="modal__footer">
-                    <button className="btn" onClick={() => handleClose(onSubmit)}>
+                    <Button className="modal-btn modal-btn-primary modal-mr" onClick={() => handleClose(onSubmit)}>
                         Submit
-                    </button>
-                    <button className="btn" onClick={() => handleClose(onClose)}>
+                    </Button>
+                    <Button className="modal-btn modal-btn-secondary" onClick={() => handleClose(onClose)}>
                         Close
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
     )
 }
-
 export default Modal
