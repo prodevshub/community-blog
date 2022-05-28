@@ -1,24 +1,22 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Modal from './Components/Modal'
+import About from './Pages/About'
+import Home from './Pages/Home'
+import Post from './Pages/Post'
 
-const App = () => {
-    // Modal props
-    const [show, setShow] = React.useState(false)
-    const onSubmit = () => {
-        console.log('Submiting...')
-        setShow(false)
-    }
-
-    return (
+const App = () => (
+    <>
         <div className="App">
             <h1>Hello World</h1>
-            <button onClick={() => setShow(true)}>Show Modal</button>
-            <Modal show={show} title="Modal zTitle" onSubmit={() => onSubmit()} onClose={() => setShow(false)}>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos quam, nulla suscipit error sit reiciendis mollitia incidunt obcaecati dignissimos. </p>
-            </Modal>
         </div>
-    )
-}
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/post/:id" element={<Post />} />
+        </Routes>
+    </>
+
+)
 
 export default App
