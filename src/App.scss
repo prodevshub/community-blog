@@ -2,10 +2,10 @@
 // if block under header will have another class or tag, please replace 'main' below with its name
 .sticky + main {
     padding-top: 150px;
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 992px) {
         padding-top: 130px;
       }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 576px) {
     padding-top: 100px;
       }
 }
