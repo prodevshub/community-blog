@@ -3,7 +3,7 @@ import Button from '../Button'
 import './Modal.scss'
 
 const Modal = ({
-    show, title, children, onSubmit, onClose
+    show = true, title = 'Modal title', children = 'This is modal content', onSubmit, onClose
 }) => {
     useEffect(() => {
         if (show) {
