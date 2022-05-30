@@ -10,7 +10,7 @@ Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 
 ---
 
-1. To use you can go to [https://getbootstrap.com/docs/4.3/components/buttons/]()  for examles
+1. To use you can go to [https://getbootstrap.com/docs/4.3/components/buttons/]()  for examples
 2. and prefix "cust-" to the standart Bootstrap Buttons style name. For example if you need red button use ` cust-btn cust-btn-danger` button style name
 
 ---
