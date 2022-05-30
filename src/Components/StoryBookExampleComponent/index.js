@@ -1,1 +1,1 @@
-export {default} from "./StoryBookExampleComponent"
+export { default } from './StoryBookExampleComponent'
