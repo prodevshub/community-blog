@@ -1,0 +1,139 @@
+$whiteColor: #fff;
+$darkColor: rgba(0, 0, 0, 0.5);
+$width: 90%;
+$maxWidth: 600px;
+$contentHeight: calc(100vh - 100vh/3*2);
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $darkColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+
+  &--close {
+    animation: modal-fade-out 0.3s linear;
+    opacity: 0;
+  }
+
+  &-dialog {
+    width: $width;
+    max-width: $maxWidth;
+    background-color: $whiteColor;
+    border-radius: 5px;
+    position: relative;
+    margin: 0.5rem;
+    padding: 1rem;
+    animation: fade-in 0.3s linear;
+
+    &--close {
+      animation: dialog-fade-out 0.15s linear;
+      opacity: 0;
+    }
+
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-header,
+  &-footer {
+    padding: 10px;
+  }
+
+  &-title {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  &-body {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: $contentHeight;
+    overflow-y: auto;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-footer> :not(:first-child) {
+    margin-left: .25rem;
+  }
+
+  &-footer> :not(:last-child) {
+    margin-right: .25rem;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.2;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out,
+      -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, -50px);
+    transform: translate(0, -50px);
+  }
+
+  100% {
+    opacity: 1;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out,
+      -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, 0px);
+    transform: translate(0, 0px);
+  }
+}
+
+@keyframes modal-fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-fade-out {
+  0% {
+    opacity: 1;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out,
+      -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, 0px);
+    transform: translate(0, 0px);
+  }
+
+  100% {
+    opacity: 0.15;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out,
+      -webkit-transform 0.3s ease-out;
+    -webkit-transform: translate(0, -50px);
+    transform: translate(0, -50px);
+  }
+}
