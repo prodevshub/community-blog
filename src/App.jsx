@@ -5,12 +5,14 @@ import './App.scss'
 import About from './Pages/About'
 import Home from './Pages/Home'
 import Post from './Pages/Post'
+import Button from './Components/Button/Button'
 
 const App = () => (
     <>
         <div className="App">
             <h1>Hello World</h1>
         </div>
+        <Button />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
