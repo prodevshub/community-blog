@@ -1,7 +1,10 @@
+@import '../../Assets/Styles/variables';
+
 .footer {
 	width: 100%;
-	min-height: 15vh;
-	background-color: #145401d8;
+	min-height: auto;
+	background-color: #0d3700d8;
+	font-family: $fontBitter;
 }
 
 .footer_main_box {
@@ -12,7 +15,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	padding: 5px;
+	padding: 15px;
 }
 
 .footer_first_block {
@@ -20,8 +23,19 @@
 	flex-direction: column;
 	align-items: flex-start;	
 	justify-content: center;
-	padding: 5px;
-	margin: 10px;
+	border-right: 1px solid #b7b7b7c2;
+	padding: 10px;	
+	max-width: 50%;
+}
+
+.footer_first_block span {
+	font-size: $s10;
+	text-align: start;
+	margin: 10px 0;
+}
+
+.footer_first_block, h2, h5 {
+margin: 0;
 }
 
 .footer_second_block {
@@ -39,4 +53,6 @@
 
 .footer_copyright {
 	text-align: center;
+	padding: 5px;
+	color: #b7b7b7;
 }

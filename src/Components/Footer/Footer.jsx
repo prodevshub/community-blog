@@ -5,11 +5,12 @@ const Footer = () => (
     <footer className="footer">
         <div className="footer_main_box">
             <div className="footer_first_block">
-                <h3>Lucky</h3>
+                <h2>Lucky</h2>
+                <h5>Community blog</h5>
                 <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, pariatur!</span>
             </div>
             <div className="footer_second_block">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, impedit!</p>
+                <h3>Follow us</h3>
             </div>
         </div>
         <div className="footer_copyright">
