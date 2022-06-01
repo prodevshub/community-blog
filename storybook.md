@@ -82,13 +82,13 @@ export const Secondary = Template.bind({});
 Secondary.args = {
  ...Primary.args, 
  label: 'Another Component',
- color: "red"
+ color: 'red'
  };
 ```
 - To make story work, go to component file and pass arguments:
 
 ```javascript
-import React from "react";
+import React from 'react';
 
 function Component({backgroundColor, color, label}) {
 
@@ -112,7 +112,7 @@ export default {
 title: 'Component', 
 component: Component, 
 args: {
-    font-size: "30px"
+    font-size: '30px'
   }
 };
 ```

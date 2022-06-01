@@ -1,8 +1,8 @@
-import { useState } from "react";
-import StoryBookExampleComponent from "./StoryBookExampleComponent";
+import { useState } from 'react';
+import StoryBookExampleComponent from './StoryBookExampleComponent';
 
 export default {
-  title: "Example component",
+  title: 'Example component',
   component: StoryBookExampleComponent,
 };
 
@@ -18,25 +18,25 @@ const Template = ({ primary, label, color, backgroundColor, padding, fontSize, f
 export const Arguments = Template.bind({});
 Arguments.args = {
   primary: true,
-  label: "Laba diena",
-  color: "yellow",
-  backgroundColor: "black",
-  padding: "15px",
+  label: 'Laba diena',
+  color: 'yellow',
+  backgroundColor: 'black',
+  padding: '15px',
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: "Labas",
-  color: "red",
+  label: 'Labas',
+  color: 'red',
 };
 
 export const Labas = Template.bind({});
 Labas.args = {
-  fontSize: "50px",
-  fontWeight: "900",
-  textAlign: "right",
-  backgroundColor: "green",
+  fontSize: '50px',
+  fontWeight: '900',
+  textAlign: 'right',
+  backgroundColor: 'green',
 };
 
 // naudojami dekoratoriai
@@ -48,11 +48,11 @@ Decorators.decorators = [
   (Story) => (
     <div
       style={{
-        fontSize: "50px",
-        fontWeight: "900",
-        textAlign: "center",
-        backgroundColor: "green",
-        margin: "15px",
+        fontSize: '50px',
+        fontWeight: '900',
+        textAlign: 'center',
+        backgroundColor: 'green',
+        margin: '15px',
       }}
     >
       <StoryBookExampleComponent />
@@ -64,9 +64,9 @@ Decorators.decorators = [
 export const DarVienas = Template.bind({});
 DarVienas.args = {
   ...Primary.args,
-  fontSize: "30px",
-  textAlign: "center",
-  backgroundColor: "grey",
+  fontSize: '30px',
+  textAlign: 'center',
+  backgroundColor: 'grey',
 };
 
 // modifikuojamas vienas komponento elementas(footer)
@@ -78,10 +78,10 @@ const TemplateAspect1 = ({footer}) => (
 
 export const CustomFooter = TemplateAspect1.bind({});
 CustomFooter.args = {
-  footer: "Built with Storybook- args modified aspect of component",
+  footer: 'Built with Storybook- args modified aspect of component',
 };
 
-// naudojamas hookas "useState"
+// naudojamas hookas 'useState'
 export const PrimarySecondary = ({
   primary,
   label,
@@ -90,14 +90,14 @@ export const PrimarySecondary = ({
   color,
 }) => {
   // Sets the hooks for both the label and primary props
-  const [value, setValue] = useState("Secondary");
+  const [value, setValue] = useState('Secondary');
   const [isPrimary, setIsPrimary] = useState(false);
 
   // Sets a click handler to change the label's value
   const handleOnChange = () => {
     if (!isPrimary) {
       setIsPrimary(true);
-      setValue("Primary");
+      setValue('Primary');
     }
   };
 
@@ -116,8 +116,8 @@ export const PrimarySecondary = ({
 };
 PrimarySecondary.args = {
   primary: true,
-  label: "Primary",
-  name: "I am mister button",
-  backgroundColor: "black",
-  color: "yellow",
+  label: 'Primary',
+  name: 'I am mister button',
+  backgroundColor: 'black',
+  color: 'yellow',
 };
