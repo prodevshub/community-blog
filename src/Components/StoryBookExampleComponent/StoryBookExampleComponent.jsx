@@ -13,9 +13,8 @@ const StoryBookExampleComponent = ({
         >
             Sample component in community blog
         </h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <button style={{ backgroundColor, color }}>{name}</button>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className='App-logo' alt='logo' />
+        <button style={{ backgroundColor, color }}>{name} BUTTON</button>
         <footer>{footer}</footer>
     </>
 )
