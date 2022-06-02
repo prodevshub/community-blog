@@ -1,5 +1,6 @@
 import './Header.scss'
 import React, { useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Header = ({
     paddingTop, paddingBottom, color, fontSize, fontFamily, primary, height, width
