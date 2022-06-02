@@ -3,11 +3,13 @@ body {
 }
 
 .message {
-    position: absolute;
+    background-color: bisque;
+}
+.message-1 {
+  position: absolute;
     top: 0;
     left: 50%;
     margin: 0;
-    background-color: bisque;
 }
 
 .fade-out {
