@@ -8,7 +8,7 @@ import Post from './Pages/Post'
 import Layout from './Components/Layout'
 
 const App = () => {
-    const [container, setContainer] = useState([])
+    const [show, setShow] = useState([])
 
     return (
         <>
@@ -16,20 +16,12 @@ const App = () => {
                 <h1>Hello World</h1>
             </div>
 
-            <button onClick={() => {
-                setContainer((st) => [...st, true])
-            }}
-            >
-                Message
-
-            </button>
-            {container.map((msg, i) => (
+            <button onClick={() => setShow((p) => [...p, true])}>Message</button>
+            {show.map((msg, i) => (
                 <Message
-                    margin={i * 30}
                     key={i}
-                    msg={msg}
-                    msgIndex={i}
-                    setContainer={setContainer}
+                    isShow={msg}
+                    setShow={setShow}
                 />
             ))}
 

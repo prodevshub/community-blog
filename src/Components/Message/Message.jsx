@@ -1,29 +1,41 @@
 /* eslint-disable no-console */
 /* eslint-disable react/jsx-closing-tag-location */
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as ReactDOM from 'react-dom'
 import './Message.scss'
 
 const Message = ({
-    margin, msg, setContainer
+    isShow, setShow
 }) => {
-    const [isShow, setShow] = useState(msg)
+    const [message, setMessage] = useState(isShow)
+    const fade = useRef(null)
+
     useEffect(() => {
+        if (!message) return
+        fade.current.classList.add('message-fade-in')
+
         setTimeout(() => {
-            setShow((p) => !p)
-            setTimeout(() => {
-                setContainer((p) => {
-                    p.shift()
-                    return [...p]
-                })
-            }, 2100)
-        }, 2000)
-    }, [msg])
+            if (fade.current === null) return
+            fade.current.classList.remove('message-fade-in')
+            fade.current.classList.add('message-fade-out')
+        }, 8000)
+
+        setTimeout(() => {
+            setMessage((p) => false)
+            setShow((p) => {
+                p.shift()
+                return [...p]
+            })
+        }, 9100)
+    }, [message])
+
     return (
 
-        ReactDOM.createPortal(isShow ? (
-            <div className="message message-container message-fade-out" style={{ marginTop: margin }}>
+        ReactDOM.createPortal(message ? (
+            <div ref={fade} className="message message-container">
                 Lorem ipsum dolor sit amet.
+                {/* <button onClick={() => setShow((p) => false)}>close</button> */}
+                <button onClick={() => setMessage((p) => false)}>close</button>
             </div>
         ) : null, document.body)
     )
