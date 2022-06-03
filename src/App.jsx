@@ -8,32 +8,30 @@ import Post from './Pages/Post'
 import Layout from './Components/Layout'
 
 const App = () => {
-    const [show, setShow] = useState(false)
-    const [isClick, setIsClick] = useState(0)
-    const [messages, setMessages] = useState([])
-
-    const letsShow = () => {
-        setShow(true)
-        setIsClick(Date.now())
-        setMessages((p) => [...p, <p className="message fade-out">Message</p>])
-    }
-    const dontShow = () => {
-        setTimeout(() => {
-            setShow(false)
-            setMessages((p) => [])
-        }, 3100)
-    }
+    const [container, setContainer] = useState([])
 
     return (
         <>
             <div className="App">
                 <h1>Hello World</h1>
             </div>
-            {/* <button onClick={() => setShow(true)}>Click</button> */}
-            <button onClick={() => letsShow(true)}>Click</button>
-            {/* {counter.map((_, i) => <Message key={i} isOpen={show} close={() => setShow(false)} counter={counter} />)} */}
 
-            <Message isOpen={show} close={dontShow} isClick={isClick} messages={messages} />
+            <button onClick={() => {
+                setContainer((st) => [...st, true])
+            }}
+            >
+                Message
+
+            </button>
+            {container.map((msg, i) => (
+                <Message
+                    margin={i * 30}
+                    key={i}
+                    msg={msg}
+                    msgIndex={i}
+                    setContainer={setContainer}
+                />
+            ))}
 
             <Routes>
                 <Route element={<Layout />}>
@@ -46,5 +44,4 @@ const App = () => {
         </>
     )
 }
-
 export default App

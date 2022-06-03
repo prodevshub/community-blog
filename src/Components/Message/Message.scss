@@ -3,19 +3,19 @@ body {
 }
 
 .message {
-    background-color: bisque;
-}
-.message-1 {
   position: absolute;
     top: 0;
     left: 50%;
     margin: 0;
+    &-container {
+        background-color: bisque;
+    }
+    &-fade-out {
+      animation: message-fade-out 2s linear;
+    opacity: 0;
+    }
 }
 
-.fade-out {
-    animation: message-fade-out 2s linear;
-    opacity: 0;
-}
 
 
 @keyframes message-fade-out {
@@ -23,9 +23,9 @@ body {
       opacity: 1;
     }
   
-    // 50% {
-    //   opacity: 1;
-    // }
+    50% {
+      opacity: 0.5;
+    }
   
     100% {
       opacity: 0;
