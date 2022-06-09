@@ -4,6 +4,9 @@ import React, { useState } from 'react'
 import './App.scss'
 import Message from './Components/Message'
 
+
+
+
 const App = () => {
     const [show, setShow] = useState([])
 
@@ -15,7 +18,8 @@ const App = () => {
 
             <button onClick={() => setShow((p) => [...p, true])}>Message</button>
             {show.map((state, i) => (
-                <Message
+                
+                `<Message
                     key={i}
                     isShow={state}
                     setShow={setShow}
@@ -24,7 +28,7 @@ const App = () => {
                     icon="icon-success"
                     title="Success"
                     description="Lorem ipsum dolor sit amet."
-                />
+                />`
             ))}
         </>
     )
