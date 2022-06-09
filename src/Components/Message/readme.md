@@ -8,7 +8,7 @@ import Message from './Components/Message'
 
 
 const App = () => {
-State witch describes the array of messages states if we call it multiplt time at "once":
+State witch describes the array of messages states if we call it multiple time at "once":
 
 `    const [show, setShow] = useState([])`
 
@@ -20,6 +20,8 @@ Stacking messages in array of states:
 
             {show.map((state, i) => (
                         <Message`
+
+Props for Message component:
 
 `                    key={i}`
 
