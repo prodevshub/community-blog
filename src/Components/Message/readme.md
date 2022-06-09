@@ -20,14 +20,16 @@ const App = () => {
             {show.map((state, i) => (
                 
                 `<Message`
-                    `key={i}`
-                    `isShow={state}`
-                    `setShow={setShow}`
-                    `indication="message-indication-success"`
-                    `iconClass="message-indication-success-icon"`
-                    `icon="icon-success"`
-                    `title="Success"`
-                    `description="Lorem ipsum dolor sit amet."`
+
+`                    key={i}`
+
+`                    isShow={state}`
+`                    setShow={setShow}`
+`                    indication="message-indication-success"`
+`                    iconClass="message-indication-success-icon"`
+`                    icon="icon-success"`
+`                    title="Success"`
+`                    description="Lorem ipsum dolor sit amet."`
                 `/>`
             ))}
         </>
