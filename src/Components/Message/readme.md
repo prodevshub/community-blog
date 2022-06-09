@@ -19,8 +19,7 @@ Stacking messages in array of states:
 `            <button onClick={() => setShow((p) => [...p, true])}>Message</button>`
 
             {show.map((state, i) => (
-                
-`                <Message`
+                        <Message`
 
 `                    key={i}`
 
@@ -38,7 +37,7 @@ Stacking messages in array of states:
 
 `                    description="Lorem ipsum dolor sit amet."`
 
-`                />`
+                />
 
 `            ))}`
 
