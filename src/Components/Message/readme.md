@@ -8,7 +8,8 @@ import Message from './Components/Message'
 
 
 const App = () => {
-    const [show, setShow] = useState([])
+State witch describes the array of messages states if we call it multiplt time at "once"
+`    const [show, setShow] = useState([])`
 
     return (
         <>
@@ -16,23 +17,36 @@ const App = () => {
                 <h1>Hello World</h1>
             </div>
 
-            <button onClick={() => setShow((p) => [...p, true])}>Message</button>
-            {show.map((state, i) => (
+Stacking messages in array of states
+`            <button onClick={() => setShow((p) => [...p, true])}>Message</button>`
+
+`            {show.map((state, i) => ( `
                 
-                `<Message`
+`                <Message`
 
 `                    key={i}`
 
 `                    isShow={state}`
+
 `                    setShow={setShow}`
+
 `                    indication="message-indication-success"`
+
 `                    iconClass="message-indication-success-icon"`
+
 `                    icon="icon-success"`
+
 `                    title="Success"`
+
 `                    description="Lorem ipsum dolor sit amet."`
-                `/>`
-            ))}
-        </>
-    )
-}
-export default App
+
+`                />`
+
+`            ))}`
+
+`        </>`
+
+`    )`
+`}`
+
+`export default App`
