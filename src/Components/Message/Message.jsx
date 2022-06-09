@@ -6,11 +6,11 @@ import Button from '../Button/Button'
 const Message = ({
     isShow,
     setShow,
-    indication = 'message-indication-warning',
-    iconClass = 'message-indication-warning-icon',
-    icon = 'icon-warning',
-    title = 'Warning',
-    description = 'Lorem ipsum dolor sit amet.'
+    indication,
+    iconClass,
+    icon,
+    title,
+    description
 }) => {
     const [message, setMessage] = useState(isShow)
     const fade = useRef(null)
