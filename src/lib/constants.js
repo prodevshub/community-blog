@@ -1,0 +1,2 @@
+export const CONTENTFUL_SPACE_ID = 'mjefrhg2t174'
+export const CONTENTFUL_ACCESS_TOKEN = '-0vWjbExEG1WU5XrYLyaMBfeCHFG3WesBEyJt3P8N6Y'
