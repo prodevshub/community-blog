@@ -1,11 +1,16 @@
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-closing-tag-location */
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import * as ReactDOM from 'react-dom'
 import './Message.scss'
+import Button from '../Button/Button'
 
 const Message = ({
-    isShow, setShow
+    isShow,
+    setShow,
+    indication = 'message-indication-warning',
+    iconClass = 'message-indication-warning-icon',
+    icon = 'icon-warning',
+    title = 'Warning',
+    description = 'Lorem ipsum dolor sit amet.'
 }) => {
     const [message, setMessage] = useState(isShow)
     const fade = useRef(null)
@@ -33,9 +38,15 @@ const Message = ({
 
         ReactDOM.createPortal(message ? (
             <div ref={fade} className="message message-container">
-                Lorem ipsum dolor sit amet.
-                {/* <button onClick={() => setShow((p) => false)}>close</button> */}
-                <button onClick={() => setMessage((p) => false)}>close</button>
+                <div className={indication} />
+                <svg className={iconClass}>
+                    <use xlinkHref={`#${icon}`} />
+                </svg>
+                <div className="message-text">
+                    <p className="message-text-title">{title}</p>
+                    <p className="message-text-description">{description}</p>
+                </div>
+                <Button className="cust-btn cust-close" onClick={() => setMessage((p) => false)} ariaLabel="&times;">&times;</Button>
             </div>
         ) : null, document.body)
     )

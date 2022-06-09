@@ -1,14 +1,97 @@
+@import '../../Assets/Styles/variables';
+
 body {
     position: relative;
+    
 }
 
 .message {
   position: absolute;
-    top: 0px;
+    top: 0;
     left: 50%;
-    margin: 0;
+    // margin: auto;
+    transform: translate(-50%, 0);
+    // text-align: center;
     &-container {
-        background-color: bisque;
+        background-color: #fafafa;
+        min-width: 500px;
+        min-height: 60px;
+        display: flex;
+        justify-content: space-between;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    &-text {
+      display: flex;
+      flex-direction: column;
+      &-title {
+        font-size: $s15;
+        padding: 0;
+        margin: 0;
+        font-weight: 700;
+      }
+      &-description {
+        font-size: $s12;
+        line-height: 1;
+        margin: 0;
+        color: #7d7d7d;      
+      }
+      
+    }
+    &-indication-danger {
+      width: 5px;
+      min-height: 100%;
+      background-color: $danger;
+      &-icon {
+        fill: $danger;
+        width: 45px;
+        height: 45px;
+        align-self: center;
+      }
+    }
+    &-indication-primary {
+      width: 5px;
+      min-height: 100%;
+      background-color: $primary;
+      &-icon {
+        fill: $primary;
+        width: 45px;
+        height: 45px;
+        align-self: center;
+      }
+    }
+    &-indication-warning {
+      width: 5px;
+      min-height: 100%;
+      background-color: $warning;
+      &-icon {
+        fill: $warning;
+        width: 45px;
+        height: 45px;
+        align-self: center;
+      }
+    }
+    &-indication-info {
+      width: 5px;
+      min-height: 100%;
+      background-color: $info;
+      &-icon {
+        fill: $info;
+        width: 45px;
+        height: 45px;
+        align-self: center;
+      }
+    }
+    &-indication-succes {
+      width: 5px;
+      min-height: 100%;
+      background-color: $success;
+      &-icon {
+        fill: $success;
+        width: 45px;
+        height: 45px;
+        align-self: center;
+      }
     }
     &-fade-out {
       animation: fade-out 3s;
@@ -20,17 +103,23 @@ body {
     
 }
 
+.cust-btn {
+  align-self: center;
+}
+
 
 @keyframes fade-out {
   0%{
     opacity: 1;
-      
-      transform: translate(0, 0px);
+      top: 0;
+      // transform: translate(0, 0);
+      transform: translate(-50%, 0);
   }
   100% {
       opacity: 0;
-      
-      transform: translate(0, -50px);
+      top: -100px;
+      // transform: translate(0, -50%);
+      transform: translate(-50%, -50%);
   }
 }
 
@@ -38,11 +127,13 @@ body {
   0%{
     opacity: 0;
       
-      transform: translate(0, -50px);
+      // transform: translate(0, -50%);
+      transform: translate(-50%, -50%);
   }
   100% {
       opacity: 1;
       
-      transform: translate(0, 0px);
+      // transform: translate(0, 0);
+      transform: translate(-50%, 0);
   }
 }
