@@ -9,13 +9,13 @@ body {
   position: absolute;
     top: 0;
     left: 50%;
-    // margin: auto;
     transform: translate(-50%, 0);
-    // text-align: center;
+    
     &-container {
         background-color: #fafafa;
         min-width: 500px;
         min-height: 60px;
+        margin: 5px;
         display: flex;
         justify-content: space-between;
         border-radius: 5px;
@@ -111,15 +111,15 @@ body {
 @keyframes fade-out {
   0%{
     opacity: 1;
-      top: 0;
-      // transform: translate(0, 0);
-      transform: translate(-50%, 0);
+      // top: 0;
+      transform: translate(0, 0);
+      // transform: translate(-50%, 0);
   }
   100% {
       opacity: 0;
-      top: -100px;
-      // transform: translate(0, -50%);
-      transform: translate(-50%, -50%);
+      // top: -100px;
+      transform: translate(0, -60px);
+      // transform: translate(-50%, -50%);
   }
 }
 
@@ -127,13 +127,13 @@ body {
   0%{
     opacity: 0;
       
-      // transform: translate(0, -50%);
-      transform: translate(-50%, -50%);
+      transform: translate(0, -60px);
+      // transform: translate(-50%, -50%);
   }
   100% {
       opacity: 1;
       
-      // transform: translate(0, 0);
-      transform: translate(-50%, 0);
+      transform: translate(0, 0);
+      // transform: translate(-50%, 0);
   }
 }

@@ -1,51 +1,49 @@
 # Example to use Message Component
 
-import React, { useState } from 'react'
+
 import './App.scss'
-import Message from './Components/Message'
-
-
-
-
+import React, { useState, useEffect } from 'react'
+import Message from './Components/Message/Message'
 const App = () => {
-State witch describes the array of messages states if we call it multiple time at "once":
+    const [show, setShow] = useState([])
 
-`    const [show, setShow] = useState([])`
+    const [existsTrue, setExistsTrue] = useState(false)
+
+    useEffect(() => {
+        let exists = show.find((state) => state === true)
+        !exists ? exists = false : exists = true
+        setExistsTrue((p) => exists)
+    }, [show])
+
+    useEffect(() => {
+        if (!existsTrue) setShow((p) => [])
+    }, [existsTrue])
 
     return (
 
-Stacking messages in array of states:
+        <>
+            <button onClick={() => setShow((p) => [...p, true])}>Message</button>
 
-`            <button onClick={() => setShow((p) => [...p, true])}>Message</button>`
+            <div className="message">
+                {show.map((state, i) => (
+                    state
+                        ? (
+                            <Message
+                                key={i}
+                                id={i}
+                                isShow={state}
+                                setShow={setShow}
+                                indication="message-indication-success"
+                                iconClass="message-indication-success-icon"
+                                icon="icon-success"
+                                title="Success"
+                                description="Lorem ipsum dolor sit amet."
+                            />
+                        ) : null
+                ))}
+            </div>
 
-            {show.map((state, i) => (
-                        <Message`
-
-Props for Message component:
-
-`                    key={i}`
-
-`                    isShow={state}`
-
-`                    setShow={setShow}`
-
-`                    indication="message-indication-success"`
-
-`                    iconClass="message-indication-success-icon"`
-
-`                    icon="icon-success"`
-
-`                    title="Success"`
-
-`                    description="Lorem ipsum dolor sit amet."`
-
-                />
-
-`            ))}`
-
-`        </>`
-
-`    )`
-`}`
-
-`export default App`
+        </>
+    )
+}
+export default App
