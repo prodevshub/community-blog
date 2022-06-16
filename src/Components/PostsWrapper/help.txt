@@ -1,0 +1,339 @@
+<style>
+.grid-container {
+  display: grid;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  grid-template-columns: 2fr 2fr 2fr;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.grid-item1{
+grid-column: 1 / 3;
+}
+.grid-item4{
+grid-column: 2 / 4;
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="grid-item grid-item1">1</div>
+  <div class="grid-item">2</div>
+  <div class="grid-item">3</div>  
+  <div class="grid-item grid-item4">4</div>
+  <div class="grid-item grid-item1">5</div>
+  <div class="grid-item">6</div>  
+  <div class="grid-item">7</div>
+  <div class="grid-item grid-item4">8</div>
+  <div class="grid-item grid-item1">9</div>  
+</div>
+
+//////////////////////////////////////////////////////////
+
+@import "../../Assets/Styles/variables";
+
+@media screen {
+  .postOne-wrapper,
+  .postTwo-wrapper,
+  .postThree-wrapper,
+  .postFour-wrapper {
+    display: grid;
+    height: 70vh;
+    margin: 1% 2%;
+    width: 96%;
+    column-gap: $s14;
+    row-gap: $s14;
+    background-color: $white;
+    padding: 10px;
+    z-index: 0;
+
+    .postFour1,
+    .postFour2,
+    .postFour3,
+    .postFour4,
+    .postFour5,
+    .postFour6,
+    .postFour7,
+    .postOne,
+    .postTwo1,
+    .postTwo2,
+    .postThree1,
+    .postThree2,
+    .postThree3 {
+      background-color: rgba(255, 255, 255, 0.8);
+      position: relative;
+      font-size: $s17;
+      text-align: left;
+      @media screen and (max-width: 576px) {
+        font-size: $s15;
+      }
+
+      //   width: 100%;
+      &--img {
+        height: 34vh;
+        width: 100%;
+        object-fit: cover;
+      }
+      &--name {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: calc(100% - $s15 - $s15);
+        font-family: $fontBitter;
+        color: $white;
+        padding-left: $s15;
+        padding-right: $s15;
+        
+        @media screen and (max-width: 576px) {
+          width: calc(100% - $s24 - $s24);
+          padding: $s24;
+        
+        }
+        &-title {
+          height: 25%;
+          overflow: hidden;
+          @media screen and (max-width: 576px) {
+            height: 35%;
+          }
+        }
+        &-date {
+          position: absolute;
+          bottom: 10px;
+          font-size: $s10;
+          @media screen and (max-width: 576px) {
+            bottom: $s10;
+          }
+        }
+      }
+    }
+    .postOne {
+      height: 70vh;
+      &--name {
+        height: 35%;
+      }
+      &--img {
+        height: 100%;
+      }
+    }
+    .postTwo1,
+    .postTwo2 {
+      width: 100%;
+      height: 70vh;
+      &--name-title {
+        height: 40%;
+      }
+      @media screen and (max-width: 992px) {
+        font-size: $s15;
+        &--name{
+          width: calc(100% - $s24 - $s24);
+          padding: $s24;
+          height: 40%;
+          &-title {
+            height: 65%;
+            overflow: hidden;
+          }
+        }
+      }
+      &--name {
+        height: 35%;
+      }
+      &--img {
+        height: 100%;
+      }
+    }
+    .postThree1,
+    .postThree2,
+    .postThree3 {
+      width: 100%;
+      height: 70vh;
+      grid-template-columns: repeat(2);
+      &--name {
+        height: 35%;
+      }
+      &--img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .postFour1,
+    .postFour2,
+    .postFour3,
+    .postFour4,
+    .postFour5,
+    .postFour6,
+    .postFour7 {
+      height: 34vh;
+      &--name {
+        height: 45%;
+      }
+    }
+
+    .postOne {
+     grid-column: span 6;
+    }
+    .postTwo1, .postTwo2 {
+      grid-column: span 3;
+      @media screen and (max-width: 576px) {
+        grid-column: span 6;
+      }
+    }
+    
+    .postThree1 {
+      grid-column: span 2;
+      @media screen and (max-width: 992px) {
+        grid-column: span 6;
+      }
+
+      @media screen and (max-width: 576px) {
+        grid-column: span 6;
+      }
+    }
+    .postThree2, .postThree3{
+      grid-column: span 2;
+      @media screen and (max-width: 992px) {
+        grid-column: span 3;
+      }
+      @media screen and (max-width: 576px) {
+        grid-column: span 6;
+      }
+    }
+     
+    .postFour1 {
+      grid-column: span 4;
+    }
+    .postFour2 {
+      grid-column: span 2;
+    }
+  }
+  .postTwo-wrapper,
+  .postThree-wrapper,
+  .postFour-wrapper {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+}
+
+//////////////////////////////////////////////
+
+import React from 'react'
+import './PostsWrapper.scss'
+
+const OnePost = ({
+    postai,
+    display,
+    gridTemplateColumns,
+    columnGap,
+    rowGap,
+    textAlign,
+    fontSize,
+    color,
+    height,
+    width,
+    margin,
+    padding,
+    position,
+    objectFit,
+    backgroundColor,
+    fontFamily,
+    overflow,
+    bottom
+}) => (
+    <div
+        className="postOne-wrapper"
+        style={{
+            display,
+            gridTemplateColumns,
+            columnGap,
+            rowGap,
+            height,
+            width,
+            margin,
+            padding,
+            backgroundColor
+        }}
+    >
+        {postai.map(({
+            id, title, imageURL, date
+        }, i) => (
+            <div className="postOne" key={id}>
+                <img
+                    className="postOne--img"
+                    src={imageURL}
+                    alt="post"
+                    style={{ objectFit, height, width }}
+                />
+                <div
+                    className="postOne--name"
+                    style={{
+                        textAlign,
+                        fontSize,
+                        color,
+                        fontFamily,
+                        position,
+                        backgroundColor,
+                        width,
+                        padding
+                    }}
+                >
+                    <p
+                        className="postOne--name-title"
+                        style={{
+                            overflow,
+                            height,
+                            margin,
+                            padding,
+                            fontFamily,
+                            fontSize,
+                            color
+                        }}
+                    >
+                        {title}
+                    </p>
+                    <p
+                        className="postOne--name-date"
+                        style={{
+                            position,
+                            height,
+                            margin,
+                            padding,
+                            fontFamily,
+                            fontSize,
+                            color,
+                            bottom
+                        }}
+                    >
+                        {date}
+                    </p>
+                </div>
+                <a
+                    className="postOne--cover"
+                    href="#"
+                    style={{
+                        color,
+                        textAlign,
+                        fontSize,
+                        height,
+                        width,
+                        position,
+                        backgroundColor,
+                        fontFamily
+                    }}
+                >
+                    <span>Read more...</span>
+                </a>
+            </div>
+        ))}
+    </div>
+)
+
+export default OnePost
