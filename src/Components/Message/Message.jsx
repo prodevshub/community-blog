@@ -45,9 +45,8 @@ const Message = ({
     }, [isMessage])
 
     return (
-
-        isMessage ? ReactDOM.createPortal(
-            (
+        isMessage
+            ? (
                 <div ref={fade} className="message-container">
                     <div className={indication} />
                     <svg className={iconClass}>
@@ -59,9 +58,7 @@ const Message = ({
                     </div>
                     <Button className="cust-btn cust-close" onClick={closeMessage} ariaLabel="&times;">&times;</Button>
                 </div>
-            ), document.querySelector('.message')
-        ) : null
-
+            ) : null
     )
 }
 export default Message
