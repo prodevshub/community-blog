@@ -2,7 +2,7 @@ import React from 'react'
 import './PostsWrapper.scss'
 
 const TwoPost = ({
-    postai,
+    posts,
     display,
     gridTemplateColumns,
     columnGap,
@@ -34,18 +34,18 @@ const TwoPost = ({
             backgroundColor
         }}
     >
-        {postai.map(({
+        {posts.map(({
             id, title, imageURL, date
         }, i) => (
             <div className="postTwo" key={id}>
                 <img
-                    className="postTwo--img"
+                    className="postTwo__img"
                     src={imageURL}
                     alt="post"
                     style={{ objectFit }}
                 />
                 <div
-                    className="postTwo--name"
+                    className="postTwo__name"
                     style={{
                         textAlign,
                         fontSize,
@@ -54,20 +54,20 @@ const TwoPost = ({
                     }}
                 >
                     <p
-                        className="postTwo--name-title"
+                        className="postTwo__name--title"
                         style={{ margin, padding, overflow }}
                     >
                         {title}
                     </p>
                     <p
-                        className="postTwo--name-date"
+                        className="postTwo__name--date"
                         style={{ margin, padding, position }}
                     >
                         {date}
                     </p>
                 </div>
                 <a
-                    className="postTwo--cover"
+                    className="postTwo__cover"
                     href="#"
                     style={{
                         color,

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
-import FourPost from './FourOrMorePosts'
+import FourOrMorePosts from './FourOrMorePosts'
 import OnePost from './OnePost'
 import ThreePost from './ThreePosts'
 import TwoPost from './TwoPosts'
@@ -79,13 +79,13 @@ const PostsWrapper = ({
         date: '2022-05-28'
     }
 
-    const postai = [post1]
-    // const postai = [post1, post2]
-    // const postai = [post1, post2, post3]
-    // const postai = [post1, post2, post3, post4]
-    // const postai = [post1, post2, post3, post4, post5, post6, post7]
+    // const posts = [post1]
+    // const posts = [post1, post2]
+    // const posts = [post1, post2, post3]
+    const posts = [post1, post2, post3, post4]
+    // const posts = [post1, post2, post3, post4, post5, post6, post7]
 
-    switch (postai.length) {
+    switch (posts.length) {
     case 0:
         return (
         // TODO:
@@ -111,7 +111,7 @@ const PostsWrapper = ({
                 fontFamily={fontFamily}
                 overflow={overflow}
                 bottom={bottom}
-                postai={postai}
+                posts={posts}
             />
         )
     case 2:
@@ -134,7 +134,7 @@ const PostsWrapper = ({
                 fontFamily={fontFamily}
                 overflow={overflow}
                 bottom={bottom}
-                postai={postai}
+                posts={posts}
             />
         )
     case 3:
@@ -157,12 +157,12 @@ const PostsWrapper = ({
                 fontFamily={fontFamily}
                 overflow={overflow}
                 bottom={bottom}
-                postai={postai}
+                posts={posts}
             />
         )
     default:
         return (
-            <FourPost
+            <FourOrMorePosts
                 display={display}
                 gridTemplateColumns={gridTemplateColumns}
                 columnGap={columnGap}
@@ -180,7 +180,7 @@ const PostsWrapper = ({
                 fontFamily={fontFamily}
                 overflow={overflow}
                 bottom={bottom}
-                postai={postai}
+                posts={posts}
             />
         )
     }

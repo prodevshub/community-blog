@@ -27,14 +27,14 @@
       font-size: $s17;
       text-align: left;
 
-      &--img {
+      &__img {
         height: inherit;
         width: 100%;
         object-fit: cover;
         z-index: 0;
       }
 
-      &--cover {
+      &__cover {
         display: none;
         background-color: rgba(58, 93, 14, 0.5);
         position: absolute;
@@ -53,7 +53,7 @@
         }
       }
 
-      &--name {
+      &__name {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -67,12 +67,12 @@
         opacity: 1;
         transition: visibility 1s linear 0s, opacity 0.5s;
 
-        &-title {
+        &--title {
           height: 25%;
           overflow: hidden;
         }
 
-        &-date {
+        &--date {
           position: absolute;
           bottom: 10px;
           font-size: $s10;
@@ -88,25 +88,25 @@
     .postFour1:hover,
     .postFour2:hover {
 
-      .postOne--cover,
-      .postTwo--cover,
-      .postThree1--cover,
-      .postThree2--cover,
-      .postThree3--cover,
-      .postFour1--cover,
-      .postFour2--cover {
+      .postOne__cover,
+      .postTwo__cover,
+      .postThree1__cover,
+      .postThree2__cover,
+      .postThree3__cover,
+      .postFour1__cover,
+      .postFour2__cover {
         display: block;
         z-index: 1;
         font-weight: 500;
       }
 
-      .postOne--name,
-      .postTwo--name,
-      .postThree1--name,
-      .postThree2--name,
-      .postThree3--name,
-      .postFour1--name,
-      .postFour2--name {
+      .postOne__name,
+      .postTwo__name,
+      .postThree1__name,
+      .postThree2__name,
+      .postThree3__name,
+      .postFour1__name,
+      .postFour2__name {
         visibility: hidden;
         opacity: 0;
         transition: visibility 0s linear 1s, opacity 0.5s;
@@ -120,15 +120,15 @@
       width: 100%;
       height: 20rem;
 
-      &--name {
+      &__name {
         height: 45%;
 
-        &-title {
+        &--title {
           height: 4.1rem;
         }
       }
 
-      &--img {
+      &__img {
         height: 100%;
         width: 100%;
       }
@@ -140,15 +140,15 @@
     .postFour2 {
       height: 15rem;
 
-      &--name {
+      &__name {
         height: 50%;
 
-        &-title {
+        &--title {
           height: $s20;
           margin-top: $s12;
         }
 
-        &-date {
+        &--date {
           margin: 0;
           bottom: $s06;
           font-size: $s10;
@@ -194,11 +194,11 @@
       grid-template-columns: repeat(6, 1fr);
       font-size: $s15;
 
-      &--img {
+      &__img {
         height: 100%;
       }
 
-      &--name {
+      &__name {
         width: calc(100% - $s20 - $s20);
         padding: $s20;
         height: 35%;
@@ -209,16 +209,16 @@
     .postTwo {
       height: 20rem;
 
-      &--name {
+      &__name {
         height: 30%;
         padding-top: 0;
 
-        &-title {
+        &--title {
           //margin: 0;
           height: $s20;
         }
 
-        &-date {
+        &--date {
           font-size: $s08;
           margin: 0;
         }
@@ -231,15 +231,15 @@
       width: 100%;
       height: 16rem;
 
-      &--name {
+      &__name {
         height: 40%;
         padding-top: 0;
 
-        &-title {
+        &--title {
           height: $s20;
         }
 
-        &-date {
+        &--date {
           font-size: $s08;
           margin: 0;
         }
@@ -250,15 +250,15 @@
     .postFour2 {
       font-size: $s12;
 
-      &--name {
+      &__name {
         padding-bottom: $s10;
 
-        &-title {
+        &--title {
           margin: 0;
           height: $s28;
         }
 
-        &-date {
+        &--date {
           font-size: $s08;
           margin: 0;
         }
@@ -300,21 +300,21 @@
       grid-column: span 6;
       height: 20rem;
 
-      &--img {
+      &__img {
         height: 100%;
       }
 
-      &--name {
+      &__name {
         width: calc(100% - $s20 - $s20);
         padding: $s20;
         padding-bottom: 0;
         height: 40%;
 
-        &-title {
+        &--title {
           height: $s17;
         }
 
-        &-date {
+        &--date {
           bottom: $s10;
           margin: 0;
         }

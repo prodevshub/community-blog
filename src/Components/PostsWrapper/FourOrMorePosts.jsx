@@ -2,8 +2,8 @@ import React from 'react'
 // eslint-disable-next-line import/no-unresolved
 import './PostsWrapper.scss'
 
-const FourPost = ({
-    postai,
+const FourOrMorePosts = ({
+    posts,
     display,
     gridTemplateColumns,
     columnGap,
@@ -35,20 +35,20 @@ const FourPost = ({
             backgroundColor
         }}
     >
-        {postai.map(({
+        {posts.map(({
             id, title, imageURL, date
         }, i) => {
             if ((i + 1) % 4 === 1 || (i + 1) % 4 === 0) {
                 return (
                     <div className="postFour1" key={id}>
                         <img
-                            className="postFour1--img"
+                            className="postFour1__img"
                             src={imageURL}
                             alt="post"
                             style={{ objectFit }}
                         />
                         <div
-                            className="postFour1--name"
+                            className="postFour1__name"
                             style={{
                                 textAlign,
                                 fontSize,
@@ -57,20 +57,20 @@ const FourPost = ({
                             }}
                         >
                             <p
-                                className="postFour1--name-title"
+                                className="postFour1__name--title"
                                 style={{ margin, padding, overflow }}
                             >
                                 {title}
                             </p>
                             <p
-                                className="postFour1--name-date"
+                                className="postFour1__name--date"
                                 style={{ margin, padding, position }}
                             >
                                 {date}
                             </p>
                         </div>
                         <a
-                            className="postFour1--cover"
+                            className="postFour1__cover"
                             href="#"
                             style={{
                                 color,
@@ -91,13 +91,13 @@ const FourPost = ({
             return (
                 <div className="postFour2" key={id}>
                     <img
-                        className="postFour2--img"
+                        className="postFour2__img"
                         src={imageURL}
                         alt="post"
                         style={{ objectFit }}
                     />
                     <div
-                        className="postFour2--name"
+                        className="postFour2__name"
                         style={{
                             textAlign,
                             fontSize,
@@ -106,20 +106,20 @@ const FourPost = ({
                         }}
                     >
                         <p
-                            className="postFour2--name-title"
+                            className="postFour2__name--title"
                             style={{ margin, padding, overflow }}
                         >
                             {title}
                         </p>
                         <p
-                            className="postFour2--name-date"
+                            className="postFour2__name--date"
                             style={{ margin, padding, position }}
                         >
                             {date}
                         </p>
                     </div>
                     <a
-                        className="postFour2--cover"
+                        className="postFour2__cover"
                         href="#"
                         style={{
                             color,
@@ -139,10 +139,4 @@ const FourPost = ({
     </div>
 )
 
-export default FourPost
-// postai.length % 4 === 1 ---> postFour (1)
-// postai.length % 4 === 2 ---> postFour (2)
-// postai.length % 4 === 3 ---> postFour (1)
-// postai.length % 4 === 0 ---> postFour (0)
-// if (i+1 % 4 === 1 || i+1 % 4 === 0) .postFour1
-// if (i+1 % 4 === 2 || i+1 % 4 === 3) .postFour2
+export default FourOrMorePosts
