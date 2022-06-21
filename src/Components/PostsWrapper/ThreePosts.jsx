@@ -2,82 +2,38 @@ import React from 'react'
 import './PostsWrapper.scss'
 
 const ThreePost = ({
-    posts,
-    display,
-    gridTemplateColumns,
-    columnGap,
-    rowGap,
-    textAlign,
-    fontSize,
-    color,
-    height,
-    width,
-    margin,
-    padding,
-    position,
-    objectFit,
-    backgroundColor,
-    fontFamily,
-    overflow
+    isLoading,
+    posts
 }) => (
     <div
         className="postThree-wrapper"
-        style={{
-            display,
-            gridTemplateColumns,
-            columnGap,
-            rowGap,
-            height,
-            width,
-            margin,
-            padding,
-            backgroundColor
-        }}
     >
-        {posts.map(({
+        {isLoading ? posts.map((post, index) => (<div className={`postThree${index + 1}-loading`} key={index} />)) : posts.map(({
             id, title, imageURL, date
-        }, i) => (
-            <div className={`postThree${i + 1}`} key={id}>
+        }, index) => (
+            <div className={`postThree${index + 1}`} key={id}>
                 <img
-                    className={`postThree${i + 1}__img`}
+                    className={`postThree${index + 1}__img`}
                     src={imageURL}
                     alt="post"
-                    style={{ objectFit }}
                 />
                 <div
-                    className={`postThree${i + 1}__name`}
-                    style={{
-                        textAlign,
-                        fontSize,
-                        color,
-                        fontFamily
-                    }}
+                    className={`postThree${index + 1}__name`}
                 >
                     <p
-                        className={`postThree${i + 1}__name--title`}
-                        style={{ margin, padding, overflow }}
+                        className={`postThree${index + 1}__name--title`}
                     >
                         {title}
                     </p>
                     <p
-                        className={`postThree${i + 1}__name--date`}
-                        style={{ margin, padding, position }}
+                        className={`postThree${index + 1}__name--date`}
                     >
                         {date}
                     </p>
                 </div>
                 <a
-                    className={`postThree${i + 1}__cover`}
+                    className={`postThree${index + 1}__cover`}
                     href="#"
-                    style={{
-                        color,
-                        textAlign,
-                        fontSize,
-                        height,
-                        position,
-                        fontFamily,
-                        backgroundColor
-                    }}
                 >
                     <span>Read more...</span>
                 </a>

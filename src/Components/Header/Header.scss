@@ -26,16 +26,16 @@
       text-align: center;
       margin: 0 auto;
       font-family: $fontBitter;
-      font-size: $s20;
+      font-size: $size20;
 
       &-description {
         line-height: 80%;
-        font-size: $s10;
+        font-size: $size10;
       }
 
       &--italic {
         font-family: $fontKalam;
-        font-size: $s24;
+        font-size: $size24;
         font-weight: 300;
       }
 
@@ -90,7 +90,7 @@
       a {
         text-decoration: none;
         color: $white;
-        font-size: $s20;
+        font-size: $size20;
       }
     }
   }
@@ -110,14 +110,14 @@
       }
 
       &__title {
-        font-size: $s17;
+        font-size: $size17;
 
         &--italic {
-          font-size: $s20;
+          font-size: $size20;
         }
 
         &-description {
-          font-size: $s10;
+          font-size: $size10;
         }
 
         hr {
@@ -132,14 +132,14 @@
       background-position: center 40%;
 
       &__title {
-        font-size: $s10;
+        font-size: $size10;
 
         &--italic {
-          font-size: $s12;
+          font-size: $size12;
         }
 
         &-description {
-          font-size: $s06;
+          font-size: $size06;
         }
 
         hr {
@@ -161,7 +161,7 @@
         height: 1.5rem;
 
         a {
-          font-size: $s15;
+          font-size: $size15;
         }
       }
     }

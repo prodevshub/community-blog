@@ -6,144 +6,42 @@ export default {
     component: PostsWrapper
 }
 
-const Template = ({
-    display,
-    gridTemplateColumns,
-    columnGap,
-    rowGap,
-    textAlign,
-    fontSize,
-    color,
-    height,
-    width,
-    margin,
-    padding,
-    position,
-    objectFit,
-    backgroundColor,
-    fontFamily,
-    overflow
-}) => (
-    <PostsWrapper
-        {...{
-            display,
-            gridTemplateColumns,
-            columnGap,
-            rowGap,
-            textAlign,
-            fontSize,
-            color,
-            height,
-            width,
-            margin,
-            padding,
-            position,
-            objectFit,
-            backgroundColor,
-            fontFamily,
-            overflow
-        }}
-    />
+const Template = (args) => (
+    <div>
+        <PostsWrapper {...args} />
+    </div>
 )
 
 export const PostLayoutWrapper = Template.bind({})
 PostLayoutWrapper.args = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(6, 1fr)',
-    height: '70vh',
-    width: '96%',
-    margin: '1% 2%',
-    padding: '10px',
-    columnGap: '1.4rem',
-    rowGap: '1.4rem',
-    backgroundColor: 'white'
+    posts: [{
+        id: 1,
+        title:
+      'Lorem Ipsum is simply dummy ',
+        imageURL:
+      'https://images.unsplash.com/photo-1653959023171-746709105833?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+        date: '2022-05-08'
+    }, {
+        id: 2,
+        title: 'Lorem Ipsum is simply dummy text of the printing and typesetting',
+        imageURL:
+      'https://images.unsplash.com/photo-1471897488648-5eae4ac6686b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        date: '2022-05-12'
+    }, {
+        id: 3,
+        title: 'Lorem Ipsum is simply dummy text of the printing',
+        imageURL:
+      'https://images.unsplash.com/photo-1602447668419-c22aa459221c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=778&q=80',
+
+        date: '2022-05-20'
+    }, {
+        id: 4,
+        title: 'Lorem Ipsum is simply dummy text of the printing',
+        imageURL:
+      'https://images.unsplash.com/photo-1653908660985-338550642ac2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1609&q=80',
+        date: '2022-05-28'
+    }],
+    isLoading: true,
+    skeletonPosts: 4
 }
 
-export const InsideLayout = Template.bind({})
-InsideLayout.args = {
-    color: 'white',
-    textAlign: 'left',
-    fontSize: '2rem',
-    height: '100%',
-    width: '100%',
-    margin: '0.5rem',
-    padding: '0.5rem',
-    position: 'absolute',
-    objectFit: 'cover',
-    backgroundColor: 'white',
-    fontFamily: 'Bitter',
-    overflow: 'hidden'
-}
-
-// const TemplateAspect1 = ({ backgroundColor, background }) => (
-//     <PostsWrapper {...{ backgroundColor, background }}>
-//         <div
-//             className="postOne-wrapper"
-//         >
-//             {backgroundColor.background}
-//             <a>{backgroundColor.backgroundColor}</a>
-//         </div>
-//     </PostsWrapper>
-// )
-
-// export const Custom = TemplateAspect1.bind({})
-// Custom.args = {
-//     backgroundColor: 'rgba(58, 93, 14, 0.5)',
-//     background: 'white'
-// }
-// export const Custom1 = TemplateAspect1.bind({})
-// Custom1.args = {
-//     backgroundColor: 'white'
-// }
-// export const Image = Template.bind({})
-// Image.args = {
-//     objectFit: 'cover',
-//     height: '100%',
-//     width: '100%'
-// }
-
-// export const Name = Template.bind({})
-// Name.args = {
-//     position: 'absolute',
-//     backgroundColor: 'rgba(0, 0, 0, 0.6)',
-//     width: 'calc(100% - $s15 - $s15)',
-//     fontFamily: 'Bitter',
-//     fontSize: '2rem',
-//     color: 'white',
-//     padding: '1.5rem'
-// }
-
-// export const Title = Template.bind({})
-// Title.args = {
-//     overflow: 'hidden',
-//     height: '25%',
-//     margin: '0.5rem',
-//     padding: '0.5rem',
-//     fontFamily: 'Bitter',
-//     fontSize: '2rem',
-//     color: 'white'
-// }
-
-// export const Date = Template.bind({})
-// Date.args = {
-//     position: 'absolute',
-//     height: '25%',
-//     margin: '0.5rem',
-//     padding: '0.5rem',
-//     fontFamily: 'Bitter',
-//     fontSize: '2rem',
-//     color: 'white',
-//     bottom: '0px'
-// }
-
-// export const Cover = Template.bind({})
-// Cover.args = {
-//     color: 'white',
-//     textAlign: 'left',
-//     fontSize: '2rem',
-//     height: '100%',
-//     width: '100%',
-//     position: 'absolute',
-//     backgroundColor: 'rgba(58, 93, 14, 0.5)',
-//     fontFamily: 'Bitter'
-// }

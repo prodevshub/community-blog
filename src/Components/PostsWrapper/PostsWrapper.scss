@@ -1,301 +1,451 @@
 @import "../../Assets/Styles/variables";
 
+.postOne-wrapper,
+.postTwo-wrapper,
+.postThree-wrapper,
+.postFour-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 1% 2%;
+  width: 96%;
+  column-gap: $size14;
+  row-gap: $size14;
+  background-color: $white;
+  padding: 10px;
+  z-index: 0;
 
-  .postOne-wrapper,
-  .postTwo-wrapper,
-  .postThree-wrapper,
-  .postFour-wrapper {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    margin: 1% 2%;
-    width: 96%;
-    column-gap: $s14;
-    row-gap: $s14;
-    background-color: $white;
-    padding: 10px;
-    z-index: 0;
+  .postOne,
+  .postTwo,
+  .postThree1,
+  .postThree2,
+  .postThree3,
+  .postFour1,
+  .postFour2 {
+    background-color: rgba(97, 95, 95, 0.6);
+    position: relative;
+    font-size: $size17;
+    text-align: left;
 
-    .postOne,
-    .postTwo,
-    .postThree1,
-    .postThree2,
-    .postThree3,
-    .postFour1,
-    .postFour2 {
-      background-color: rgba(255, 255, 255, 0.8);
-      position: relative;
-      font-size: $s17;
-      text-align: left;
-
-      &__img {
-        height: inherit;
-        width: 100%;
-        object-fit: cover;
-        z-index: 0;
-      }
-
-      &__cover {
-        display: none;
-        background-color: rgba(58, 93, 14, 0.5);
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: inherit;
-        width: 100%;
-        color: $white;
-        text-decoration: none;
-
-        span {
-          position: absolute;
-          width: 100%;
-          text-align: center;
-          top: 45%;
-        }
-      }
-
-      &__name {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        width: calc(100% - $s15 - $s15);
-        font-family: $fontBitter;
-        color: $white;
-        padding-left: $s15;
-        padding-right: $s15;
-        visibility: visible;
-        opacity: 1;
-        transition: visibility 1s linear 0s, opacity 0.5s;
-
-        &--title {
-          height: 25%;
-          overflow: hidden;
-        }
-
-        &--date {
-          position: absolute;
-          bottom: 10px;
-          font-size: $s10;
-        }
-      }
-    }
-
-    .postOne:hover,
-    .postTwo:hover,
-    .postThree1:hover,
-    .postThree2:hover,
-    .postThree3:hover,
-    .postFour1:hover,
-    .postFour2:hover {
-
-      .postOne__cover,
-      .postTwo__cover,
-      .postThree1__cover,
-      .postThree2__cover,
-      .postThree3__cover,
-      .postFour1__cover,
-      .postFour2__cover {
-        display: block;
-        z-index: 1;
-        font-weight: 500;
-      }
-
-      .postOne__name,
-      .postTwo__name,
-      .postThree1__name,
-      .postThree2__name,
-      .postThree3__name,
-      .postFour1__name,
-      .postFour2__name {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s linear 1s, opacity 0.5s;
-      }
-    }
-    .postOne,
-    .postTwo,
-    .postThree1,
-    .postThree2,
-    .postThree3 {
+    &__img {
+      height: inherit;
       width: 100%;
-      height: 20rem;
+      object-fit: cover;
+      z-index: 0;
+    }
 
-      &__name {
-        height: 45%;
+    &__cover {
+      display: none;
+      background-color: rgba(58, 93, 14, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: inherit;
+      width: 100%;
+      color: $white;
+      text-decoration: none;
 
-        &--title {
-          height: 4.1rem;
-        }
-      }
-
-      &__img {
-        height: 100%;
+      span {
+        position: absolute;
         width: 100%;
-      }
-    }
-    .postOne{
-      height: 25rem;
-    }
-    .postFour1,
-    .postFour2 {
-      height: 15rem;
-
-      &__name {
-        height: 50%;
-
-        &--title {
-          height: $s20;
-          margin-top: $s12;
-        }
-
-        &--date {
-          margin: 0;
-          bottom: $s06;
-          font-size: $s10;
-        }
+        text-align: center;
+        top: 45%;
       }
     }
 
-    .postOne {
-      grid-column: span 6;
-    }
+    &__name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: calc(100% - $size15 - $size15);
+      font-family: $fontBitter;
+      color: $white;
+      padding-left: $size15;
+      padding-right: $size15;
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1s linear 0s, opacity 0.5s;
 
-    .postTwo {
-      grid-column: span 3;
-    }
+      &--title {
+        height: 25%;
+        overflow: hidden;
+      }
 
-    .postThree1,
-    .postThree2,
-    .postThree3,
-    .postFour2 {
-      grid-column: span 2;
-    }
-
-    .postFour1 {
-      grid-column: span 4;
+      &--date {
+        position: absolute;
+        bottom: 10px;
+        font-size: $size10;
+      }
     }
   }
 
-//////////////////////////////////////////////////
-@include tablet {
+  .postOne-loading,
+  .postTwo-loading,
+  .postThree1-loading,
+  .postThree2-loading,
+  .postThree3-loading,
+  .postFour1-loading,
+  .postFour2-loading {
+    background-color: rgba(97, 95, 95, 0.4);
+    background-image: url(../../../public/img/ladybug.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    font-size: $size17;
+    text-align: left;
 
+    .postOne__cover,
+    .postTwo__cover,
+    .postThree1__cover,
+    .postThree2__cover,
+    .postThree3__cover,
+    .postFour1__cover,
+    .postFour2__cover {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: inherit;
+      width: 100%;
+    }
+
+    .postOne__name,
+    .postTwo__name,
+    .postThree1__name,
+    .postThree2__name,
+    .postThree3__name,
+    .postFour1__name,
+    .postFour2__name {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: calc(100% - $size15 - $size15);
+      background-color: transparent;
+    }
+  }
+
+  .postOne:hover,
+  .postTwo:hover,
+  .postThree1:hover,
+  .postThree2:hover,
+  .postThree3:hover,
+  .postFour1:hover,
+  .postFour2:hover {
+
+    .postOne__cover,
+    .postTwo__cover,
+    .postThree1__cover,
+    .postThree2__cover,
+    .postThree3__cover,
+    .postFour1__cover,
+    .postFour2__cover {
+      display: block;
+      z-index: 1;
+      font-weight: 500;
+    }
+
+    .postOne__name,
+    .postTwo__name,
+    .postThree1__name,
+    .postThree2__name,
+    .postThree3__name,
+    .postFour1__name,
+    .postFour2__name {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear 1s, opacity 0.5s;
+    }
+  }
+
+  .postOne,
+  .postOne-loading {
+    width: 100%;
+    height: 25rem;
+    grid-column: span 6;
+
+    &__name {
+      height: 45%;
+
+      &--title {
+        height: 4.1rem;
+      }
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postTwo,
+  .postTwo-loading {
+    width: 100%;
+    height: 20rem;
+    grid-column: span 3;
+
+    &__name {
+      height: 45%;
+
+      &--title {
+        height: 4.1rem;
+      }
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postThree1,
+  .postThree1-loading {
+    width: 100%;
+    height: 20rem;
+    grid-column: span 2;
+
+    &__name {
+      height: 45%;
+
+      &--title {
+        height: 4.1rem;
+      }
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postThree2,
+  .postThree2-loading,
+  .postThree3,
+  .postThree3-loading {
+    width: 100%;
+    height: 20rem;
+    grid-column: span 2;
+
+    &__name {
+      height: 45%;
+
+      &--title {
+        height: 4.1rem;
+      }
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postFour1,
+  .postFour1-loading {
+    height: 15rem;
+    grid-column: span 4;
+
+    &__name {
+      height: 50%;
+
+      &--title {
+        height: $size20;
+        margin-top: $size12;
+      }
+
+      &--date {
+        margin: 0;
+        bottom: $size06;
+        font-size: $size10;
+      }
+    }
+  }
+
+  .postFour2,
+  .postFour2-loading {
+    height: 15rem;
+    grid-column: span 2;
+
+    &__name {
+      height: 50%;
+
+      &--title {
+        height: $size20;
+        margin-top: $size12;
+      }
+
+      &--date {
+        margin: 0;
+        bottom: $size06;
+        font-size: $size10;
+      }
+    }
+  }
+}
+// ========== TABLET LAYOUT ==========
+  @include tablet{
   .postOne-wrapper,
   .postTwo-wrapper,
   .postThree-wrapper,
   .postFour-wrapper {
 
     .postOne,
-    .postTwo,
-    .postThree1,
-    .postThree2,
-    .postThree3,
-    .postFour1,
-    .postFour2 {
+    .postOne-loading {
       grid-template-columns: repeat(6, 1fr);
-      font-size: $s15;
+      font-size: $size15;
+      grid-column: span 6;
 
       &__img {
         height: 100%;
       }
 
       &__name {
-        width: calc(100% - $s20 - $s20);
-        padding: $s20;
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
         height: 35%;
       }
     }
 
-    .postOne,
-    .postTwo {
+    .postTwo,
+    .postTwo-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
       height: 20rem;
+      grid-column: span 3;
+
+      &__img {
+        height: 100%;
+      }
 
       &__name {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
         height: 30%;
         padding-top: 0;
 
         &--title {
-          //margin: 0;
-          height: $s20;
+          height: $size20;
         }
 
         &--date {
-          font-size: $s08;
+          font-size: $size08;
           margin: 0;
         }
       }
     }
 
     .postThree1,
-    .postThree2,
-    .postThree3 {
-      width: 100%;
+    .postThree1-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
+      grid-column: span 6;
+width: 100%;
       height: 16rem;
+      &__img {
+        height: 100%;
+      }
 
       &__name {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        height: 40%;
+        padding-top: 0;
+      
+        &--title {
+          height: $size20;
+        }
+
+        &--date {
+          font-size: $size08;
+          margin: 0;
+        }
+      }
+    }
+
+    .postThree2,
+    .postThree2-loading,
+    .postThree3,
+    .postThree3-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
+      grid-column: span 3;
+      width: 100%;
+      height: 16rem;
+      &__img {
+        height: 100%;
+      }
+
+      &__name {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
         height: 40%;
         padding-top: 0;
 
         &--title {
-          height: $s20;
+          height: $size20;
         }
 
         &--date {
-          font-size: $s08;
+          font-size: $size08;
           margin: 0;
         }
       }
     }
 
     .postFour1,
-    .postFour2 {
-      font-size: $s12;
+    .postFour1-loading,
+    .postFour2,
+    .postFour2-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size12;
+      grid-column: span 3;
+
+      &__img {
+        height: 100%;
+      }
 
       &__name {
-        padding-bottom: $s10;
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        padding-bottom: $size10;
+        height: 35%;    
 
         &--title {
           margin: 0;
-          height: $s28;
+          height: $size28;
         }
 
         &--date {
-          font-size: $s08;
+          font-size: $size08;
           margin: 0;
         }
       }
     }
-
-    .postOne,
-    .postThree1 {
-      grid-column: span 6;
-    }
-
-    .postTwo,
-    .postThree2,
-    .postThree3,
-    .postFour1,
-    .postFour2 {
-      grid-column: span 3;
-    }
   }
-}
-
-///////////////////////////////////////////////////
-@include mobile-large {
-
+  }
+  // ========== MOBILE LAYOUT ==========
+  @include mobile-large {
   .postOne-wrapper,
   .postTwo-wrapper,
   .postThree-wrapper,
   .postFour-wrapper {
 
     .postOne,
+    .postOne-loading,
     .postTwo,
+    .postTwo-loading,
     .postThree1,
+    .postThree1-loading,
     .postThree2,
+    .postThree2-loading,
     .postThree3,
+    .postThree3-loading,
     .postFour1,
-    .postFour2 {
-      font-size: $s14;
+    .postFour1-loading,
+    .postFour2,
+    .postFour2-loading {
+      font-size: $size14;
       grid-template-columns: repeat(6, 1fr);
       grid-column: span 6;
       height: 20rem;
@@ -305,17 +455,17 @@
       }
 
       &__name {
-        width: calc(100% - $s20 - $s20);
-        padding: $s20;
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
         padding-bottom: 0;
         height: 40%;
 
         &--title {
-          height: $s17;
+          height: $size17;
         }
 
         &--date {
-          bottom: $s10;
+          bottom: $size10;
           margin: 0;
         }
       }
