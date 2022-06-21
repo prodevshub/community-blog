@@ -6,7 +6,7 @@ import TwoPost from './TwoPosts'
 
 const PostsWrapper = ({
     posts,
-    isLoading,
+    isLoading = true,
     skeletonPosts = 4
 }) => {
     const [postState, setPostState] = useState(new Array(skeletonPosts).fill('loading'))
