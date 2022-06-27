@@ -1,11 +1,11 @@
 import React, {
-    useEffect, useRef, memo, useCallback, useState
+    useEffect, useRef
 } from 'react'
 import './Message.scss'
 import * as ReactDOM from 'react-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import Button from '../Button/Button'
-import { removeMessage, deleteMessage } from '../../actions'
+import { removeMessage } from '../../actions'
 
 const Message = ({ messages }) => {
     const fade = useRef(null)
@@ -34,7 +34,6 @@ const Message = ({ messages }) => {
             <div ref={fade} className="message">
                 {messages.map((msg) => (
                     <div
-                        id={`${msg.id}`}
                         className="message-container message-fade-in"
                         key={msg.id}
                     >
@@ -51,7 +50,7 @@ const Message = ({ messages }) => {
                             </p>
                         </div>
                         <Button
-                            className="cust-btn cust-close"
+                            className="cust-btn cust-close message__close-button"
                             onClick={() => closeMessage(msg.id)}
                             ariaLabel="&times;"
                         >

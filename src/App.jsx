@@ -25,7 +25,7 @@ const App = () => {
     return (
 
         <>
-            <button onClick={() => dispatch(addMessage('Erorr fetching posts', msgType[rand(0, 3)], Date.now()))}>
+            <button onClick={() => dispatch(addMessage('Error fetching posts', msgType[rand(0, 3)], Date.now()))}>
                 Messages
             </button>
             <Message {...{
