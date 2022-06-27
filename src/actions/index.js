@@ -1,14 +1,11 @@
-export const addMessage = (text, type, state) => ({
+export const addMessage = (text, type, id) => ({
     type: 'ADD_MESSAGE',
-    payload: { text, type, state }
+    payload: {
+        text, type, id
+    }
 })
 
 export const removeMessage = (id) => ({
     type: 'REMOVE_MESSAGE',
-    payload: id
-})
-
-export const changeStateMessage = (id) => ({
-    type: 'CHANGE_STATE_MESSAGE',
     payload: id
 })

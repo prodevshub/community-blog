@@ -1,60 +1,59 @@
-import React, { useEffect } from 'react'
+import React, {
+    useEffect, useRef, memo, useCallback, useState
+} from 'react'
 import './Message.scss'
 import * as ReactDOM from 'react-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Button from '../Button/Button'
-import { removeMessage } from '../../actions'
+import { removeMessage, deleteMessage } from '../../actions'
 
 const Message = ({ messages }) => {
+    const fade = useRef(null)
+    const timerID = useRef(0)
     const dispatch = useDispatch()
 
     const closeMessage = (id) => {
-        const timeId = setTimeout(() => {
-            dispatch(removeMessage(id))
-        }, 100)
-        return () => clearTimeout(timeId)
+        dispatch(removeMessage(id))
     }
 
     useEffect(() => {
-        if (messages.length === 0) return
-        const timeStateId = setTimeout(() => {
-            dispatch(removeMessage(messages.length - 1))
-        }, 4000)
-        return () => clearTimeout(timeStateId)
-    }, [messages, dispatch])
-
-    useEffect(() => {
-        if (messages.length === 0) return
-        const messageId = setTimeout(() => {
-            document.querySelector(`#id-${messages.length - 1}`).classList.remove('message-fade-in')
-            document.querySelector(`#id-${messages.length - 1}`).classList.add('message-fade-out')
-        }, 2000)
-        return () => clearTimeout(messageId)
+        if (fade.current === null) return
+        const element = fade.current
+        timerID.current = setTimeout(() => {
+            element.childNodes[messages.length - 1].classList.remove('message-fade-in')
+            element.childNodes[messages.length - 1].classList.add('message-fade-out')
+            element.childNodes[messages.length - 1].addEventListener('animationend', () => {
+                dispatch(removeMessage(messages[messages.length - 1].id))
+            })
+        }, 1500)
+        return () => clearTimeout(timerID.current)
     }, [messages])
 
     return messages.length
         ? ReactDOM.createPortal(
-            <div className="message">
-                {messages.map((msg, i) => (
+            <div ref={fade} className="message">
+                {messages.map((msg) => (
                     <div
-                        id={`id-${i}`}
+                        id={`${msg.id}`}
                         className="message-container message-fade-in"
-                        key={i}
+                        key={msg.id}
                     >
-                        <div className="message-indication-danger" />
-                        <svg className="message-indication-danger-icon">
-                            <use xlinkHref="#icon-danger" />
+                        <div className={`message-indication-${msg.type}`} />
+                        <svg className={`message-indication-${msg.type}-icon`}>
+                            <use xlinkHref={`#icon-${msg.type}`} />
                         </svg>
                         <div className="message-text">
                             <p className="message-text-title">{msg.type}</p>
                             <p className="message-text-description">
                                 {msg.text}
+                                {'-->'}
+                                {msg.id}
                             </p>
                         </div>
                         <Button
                             className="cust-btn cust-close"
-                            onClick={() => closeMessage(i)}
-                            aria-label="&times;"
+                            onClick={() => closeMessage(msg.id)}
+                            ariaLabel="&times;"
                         >
                             &times;
                         </Button>
@@ -67,62 +66,3 @@ const Message = ({ messages }) => {
 }
 
 export default Message
-
-// const Message = ({
-//     id,
-//     isShow,
-//     setShow,
-//     indication,
-//     iconClass,
-//     icon,
-//     title,
-//     description
-// }) => {
-//     const [isMessage, setIsMessage] = useState(isShow)
-//     const fade = useRef(null)
-
-//     const closeMessage = () => {
-//         setIsMessage((p) => false)
-//         setShow((p) => {
-//             const copy = p.slice()
-//             copy.splice(id, 1, false)
-//             return [...copy]
-//         })
-//     }
-
-//     useEffect(() => {
-//         if (!isMessage) return
-//         fade.current.classList.add('message-fade-in')
-
-//         setTimeout(() => {
-//             if (fade.current === null) return
-//             fade.current.classList.remove('message-fade-in')
-//             fade.current.classList.add('message-fade-out')
-//             setTimeout(() => {
-//                 setIsMessage((p) => false)
-//                 setShow((p) => {
-//                     const copy = p.slice()
-//                     copy.splice(id, 1, false)
-//                     return [...copy]
-//                 })
-//             }, 3000)
-//         }, 8000)
-//     }, [isMessage])
-
-//     return isMessage ? (
-//         <div ref={fade} className="message-container">
-//             <div className={indication} />
-//             <svg className={iconClass}>
-//                 <use xlinkHref={`#${icon}`} />
-//             </svg>
-//             <div className="message-text">
-//                 <p className="message-text-title">{title}</p>
-//                 <p className="message-text-description">{description}</p>
-//             </div>
-//             <Button className="cust-btn cust-close" onClick={closeMessage} ariaLabel="&times;">
-//                 &times;
-//             </Button>
-//         </div>
-//     ) : null
-// }
-// export default Message

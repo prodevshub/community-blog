@@ -38,7 +38,7 @@ body {
       }
       
     }
-    &-indication-danger {
+    &-indication-error {
       width: 5px;
       min-height: 100%;
       background-color: $danger;
@@ -94,7 +94,7 @@ body {
       }
     }
     &-fade-out {
-      animation: fade-out 3s;
+      animation: fade-out 0.8s;
       opacity: 0;
     }
     &-fade-in {
@@ -111,15 +111,11 @@ body {
 @keyframes fade-out {
   0%{
     opacity: 1;
-      // top: 0;
       transform: translate(0, 0);
-      // transform: translate(-50%, 0);
   }
   100% {
       opacity: 0;
-      // top: -100px;
       transform: translate(0, -60px);
-      // transform: translate(-50%, -50%);
   }
 }
 
@@ -128,12 +124,10 @@ body {
     opacity: 0;
       
       transform: translate(0, -60px);
-      // transform: translate(-50%, -50%);
   }
   100% {
       opacity: 1;
       
       transform: translate(0, 0);
-      // transform: translate(-50%, 0);
   }
 }
