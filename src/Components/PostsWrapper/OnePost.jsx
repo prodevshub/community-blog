@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './PostsWrapper.scss'
 
 const OnePost = ({
@@ -15,17 +16,11 @@ const OnePost = ({
                     src={imageURL}
                     alt="post"
                 />
-                <div
-                    className="postOne__name"
-                >
-                    <p
-                        className="postOne__name--title"
-                    >
+                <div className="postOne__title-wrapper">
+                    <p className="postOne__title">
                         {title}
                     </p>
-                    <p
-                        className="postOne__name--date"
-                    >
+                    <p className="postOne__title-date">
                         {date}
                     </p>
                 </div>
@@ -39,5 +34,8 @@ const OnePost = ({
         ))}
     </div>
 )
-
+OnePost.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool
+}
 export default OnePost

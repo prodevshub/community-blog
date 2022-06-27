@@ -44,4 +44,3 @@ PostLayoutWrapper.args = {
     isLoading: true,
     skeletonPosts: 4
 }
-

@@ -1,6 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './PostsWrapper.scss'
 
+let columnCounter = 0
+const indexCheck = (index) => { ((index + 1) % 4 === 1 || (index + 1) % 4 === 0) ? columnCounter = 1 : columnCounter = 2 }
 const FourOrMorePosts = ({
     posts,
     isLoading
@@ -8,66 +11,31 @@ const FourOrMorePosts = ({
     <div
         className="postFour-wrapper"
     >
-        {isLoading ? posts.map((p, index) => (((index + 1) % 4 === 1 || (index + 1) % 4 === 0)
-            ? (<div className="postFour1-loading" key={index} />) : (<div className="postFour2-loading" key={index} />)))
+        {isLoading ? posts.map((p, index) => {
+            indexCheck(index)
+            return (<div className={`postFour${columnCounter}-loading`} key={index} />)
+        })
             : posts.map(({
                 id, title, imageURL, date
-            }, i) => {
-                if ((i + 1) % 4 === 1 || (i + 1) % 4 === 0) {
-                    return (
-                        <div className="postFour1" key={id}>
-                            <img
-                                className="postFour1__img"
-                                src={imageURL}
-                                alt="post"
-                            />
-                            <div
-                                className="postFour1__name"
-                            >
-                                <p
-                                    className="postFour1__name--title"
-                                >
-                                    {title}
-                                </p>
-                                <p
-                                    className="postFour1__name--date"
-                                >
-                                    {date}
-                                </p>
-                            </div>
-                            <a
-                                className="postFour1__cover"
-                                href="#"
-                            >
-                                <span>Read more...</span>
-                            </a>
-                        </div>
-                    )
-                }
-
+            }, index) => {
+                indexCheck(index)
                 return (
-                    <div className="postFour2" key={id}>
+                    <div className={`postFour${columnCounter}`} key={id}>
                         <img
-                            className="postFour2__img"
+                            className={`postFour${columnCounter}__img`}
                             src={imageURL}
                             alt="post"
                         />
-                        <div
-                            className="postFour2__name"
-                        >
-                            <p
-                                className="postFour2__name--title"
-                            >
+                        <div className={`postFour${columnCounter}__title-wrapper`}>
+                            <p className={`postFour${columnCounter}__title`}>
                                 {title}
                             </p>
-                            <p
-                                className="postFour2__name--date"
-                            >
+                            <p className={`postFour${columnCounter}__title-date`}>
                                 {date}
                             </p>
                         </div>
                         <a
-                            className="postFour2__cover"
+                            className={`postFour${columnCounter}__cover`}
                             href="#"
                         >
                             <span>Read more...</span>
@@ -77,5 +45,8 @@ const FourOrMorePosts = ({
             })}
     </div>
 )
-
+FourOrMorePosts.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool
+}
 export default FourOrMorePosts

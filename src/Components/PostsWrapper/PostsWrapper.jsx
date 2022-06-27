@@ -1,11 +1,12 @@
 import { React, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import FourOrMorePosts from './FourOrMorePosts'
 import OnePost from './OnePost'
-import ThreePost from './ThreePosts'
-import TwoPost from './TwoPosts'
+import ThreePosts from './ThreePosts'
+import TwoPosts from './TwoPosts'
 
 const PostsWrapper = ({
-    posts,
+    posts = [],
     isLoading = true,
     skeletonPosts = 4
 }) => {
@@ -30,14 +31,14 @@ const PostsWrapper = ({
         )
     case 2:
         return (
-            <TwoPost
+            <TwoPosts
                 posts={postState}
                 isLoading={isLoading}
             />
         )
     case 3:
         return (
-            <ThreePost
+            <ThreePosts
                 posts={postState}
                 isLoading={isLoading}
             />
@@ -50,5 +51,10 @@ const PostsWrapper = ({
             />
         )
     }
+}
+PostsWrapper.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool,
+    skeletonPosts: PropTypes.number
 }
 export default PostsWrapper

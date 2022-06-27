@@ -52,7 +52,7 @@
       }
     }
 
-    &__name {
+    &__title-wrapper {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -65,18 +65,19 @@
       visibility: visible;
       opacity: 1;
       transition: visibility 1s linear 0s, opacity 0.5s;
-
-      &--title {
-        height: 25%;
-        overflow: hidden;
-      }
-
-      &--date {
-        position: absolute;
-        bottom: 10px;
-        font-size: $size10;
-      }
     }
+
+    &__title {
+      height: 25%;
+      overflow: hidden;
+    }
+
+    &__title-date {
+      position: absolute;
+      bottom: 10px;
+      font-size: $size10;
+    }
+
   }
 
   .postOne-loading,
@@ -110,13 +111,13 @@
       width: 100%;
     }
 
-    .postOne__name,
-    .postTwo__name,
-    .postThree1__name,
-    .postThree2__name,
-    .postThree3__name,
-    .postFour1__name,
-    .postFour2__name {
+    .postOne__title-wrapper,
+    .postTwo__title-wrapper,
+    .postThree1__title-wrapper,
+    .postThree2__title-wrapper,
+    .postThree3__title-wrapper,
+    .postFour1__title-wrapper,
+    .postFour2__title-wrapper {
       display: none;
       position: absolute;
       bottom: 0;
@@ -146,13 +147,13 @@
       font-weight: 500;
     }
 
-    .postOne__name,
-    .postTwo__name,
-    .postThree1__name,
-    .postThree2__name,
-    .postThree3__name,
-    .postFour1__name,
-    .postFour2__name {
+    .postOne__title-wrapper,
+    .postTwo__title-wrapper,
+    .postThree1__title-wrapper,
+    .postThree2__title-wrapper,
+    .postThree3__title-wrapper,
+    .postFour1__title-wrapper,
+    .postFour2__title-wrapper {
       visibility: hidden;
       opacity: 0;
       transition: visibility 0s linear 1s, opacity 0.5s;
@@ -165,12 +166,12 @@
     height: 25rem;
     grid-column: span 6;
 
-    &__name {
+    &__title-wrapper {
       height: 45%;
+    }
 
-      &--title {
-        height: 4.1rem;
-      }
+    &__title {
+      height: 4.1rem;
     }
 
     &__img {
@@ -185,12 +186,12 @@
     height: 20rem;
     grid-column: span 3;
 
-    &__name {
+    &__title-wrapper {
       height: 45%;
+    }
 
-      &--title {
-        height: 4.1rem;
-      }
+    &__title {
+      height: 4.1rem;
     }
 
     &__img {
@@ -205,12 +206,12 @@
     height: 20rem;
     grid-column: span 2;
 
-    &__name {
+    &__title-wrapper {
       height: 45%;
+    }
 
-      &--title {
-        height: 4.1rem;
-      }
+    &__title {
+      height: 4.1rem;
     }
 
     &__img {
@@ -227,12 +228,12 @@
     height: 20rem;
     grid-column: span 2;
 
-    &__name {
+    &__title-wrapper {
       height: 45%;
+    }
 
-      &--title {
-        height: 4.1rem;
-      }
+    &__title {
+      height: 4.1rem;
     }
 
     &__img {
@@ -246,19 +247,19 @@
     height: 15rem;
     grid-column: span 4;
 
-    &__name {
+    &__title-wrapper {
       height: 50%;
+    }
 
-      &--title {
-        height: $size20;
-        margin-top: $size12;
-      }
+    &__title {
+      height: $size20;
+      margin-top: $size12;
+    }
 
-      &--date {
-        margin: 0;
-        bottom: $size06;
-        font-size: $size10;
-      }
+    &__title-date {
+      margin: 0;
+      bottom: $size06;
+      font-size: $size10;
     }
   }
 
@@ -267,24 +268,26 @@
     height: 15rem;
     grid-column: span 2;
 
-    &__name {
+    &__title-wrapper {
       height: 50%;
+    }
 
-      &--title {
-        height: $size20;
-        margin-top: $size12;
-      }
+    &__title {
+      height: $size20;
+      margin-top: $size12;
+    }
 
-      &--date {
-        margin: 0;
-        bottom: $size06;
-        font-size: $size10;
-      }
+    &__title-date {
+      margin: 0;
+      bottom: $size06;
+      font-size: $size10;
     }
   }
 }
-// ========== TABLET LAYOUT ==========
-  @include tablet{
+
+////////tablet layout/////////
+@include tablet {
+
   .postOne-wrapper,
   .postTwo-wrapper,
   .postThree-wrapper,
@@ -300,7 +303,7 @@
         height: 100%;
       }
 
-      &__name {
+      &__title-wrapper {
         width: calc(100% - $size20 - $size20);
         padding: $size20;
         height: 35%;
@@ -318,20 +321,20 @@
         height: 100%;
       }
 
-      &__name {
+      &__title-wrapper {
         width: calc(100% - $size20 - $size20);
         padding: $size20;
         height: 30%;
         padding-top: 0;
+      }
 
-        &--title {
-          height: $size20;
-        }
+      &__title {
+        height: $size20;
+      }
 
-        &--date {
-          font-size: $size08;
-          margin: 0;
-        }
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
       }
     }
 
@@ -340,26 +343,27 @@
       grid-template-columns: repeat(6, 1fr);
       font-size: $size15;
       grid-column: span 6;
-width: 100%;
+      width: 100%;
       height: 16rem;
+
       &__img {
         height: 100%;
       }
 
-      &__name {
+      &__title-wrapper {
         width: calc(100% - $size20 - $size20);
         padding: $size20;
         height: 40%;
         padding-top: 0;
-      
-        &--title {
-          height: $size20;
-        }
+      }
 
-        &--date {
-          font-size: $size08;
-          margin: 0;
-        }
+      &__title {
+        height: $size20;
+      }
+
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
       }
     }
 
@@ -372,24 +376,25 @@ width: 100%;
       grid-column: span 3;
       width: 100%;
       height: 16rem;
+
       &__img {
         height: 100%;
       }
 
-      &__name {
+      &__title-wrapper {
         width: calc(100% - $size20 - $size20);
         padding: $size20;
         height: 40%;
         padding-top: 0;
+      }
 
-        &--title {
-          height: $size20;
-        }
+      &__title {
+        height: $size20;
+      }
 
-        &--date {
-          font-size: $size08;
-          margin: 0;
-        }
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
       }
     }
 
@@ -405,27 +410,29 @@ width: 100%;
         height: 100%;
       }
 
-      &__name {
+      &__title-wrapper {
         width: calc(100% - $size20 - $size20);
         padding: $size20;
         padding-bottom: $size10;
-        height: 35%;    
+        height: 35%;
+      }
 
-        &--title {
-          margin: 0;
-          height: $size28;
-        }
+      &__title {
+        margin: 0;
+        height: $size28;
+      }
 
-        &--date {
-          font-size: $size08;
-          margin: 0;
-        }
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
       }
     }
   }
-  }
-  // ========== MOBILE LAYOUT ==========
-  @include mobile-large {
+}
+
+/////////mobile layout/////////
+@include mobile-large {
+
   .postOne-wrapper,
   .postTwo-wrapper,
   .postThree-wrapper,
@@ -454,20 +461,20 @@ width: 100%;
         height: 100%;
       }
 
-      &__name {
+      &__title-wrapper {
         width: calc(100% - $size20 - $size20);
         padding: $size20;
         padding-bottom: 0;
         height: 40%;
+      }
 
-        &--title {
-          height: $size17;
-        }
+      &__title {
+        height: $size17;
+      }
 
-        &--date {
-          bottom: $size10;
-          margin: 0;
-        }
+      &__title-date {
+        bottom: $size10;
+        margin: 0;
       }
     }
   }

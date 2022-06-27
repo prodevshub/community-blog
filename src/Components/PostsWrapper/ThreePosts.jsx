@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './PostsWrapper.scss'
 
-const ThreePost = ({
+const ThreePosts = ({
     isLoading,
     posts
 }) => (
@@ -17,17 +18,11 @@ const ThreePost = ({
                     src={imageURL}
                     alt="post"
                 />
-                <div
-                    className={`postThree${index + 1}__name`}
-                >
-                    <p
-                        className={`postThree${index + 1}__name--title`}
-                    >
+                <div className={`postThree${index + 1}__title-wrapper`}>
+                    <p className={`postThree${index + 1}__title`}>
                         {title}
                     </p>
-                    <p
-                        className={`postThree${index + 1}__name--date`}
-                    >
+                    <p className={`postThree${index + 1}__title-date`}>
                         {date}
                     </p>
                 </div>
@@ -41,5 +36,8 @@ const ThreePost = ({
         ))}
     </div>
 )
-
-export default ThreePost
+ThreePosts.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool
+}
+export default ThreePosts
