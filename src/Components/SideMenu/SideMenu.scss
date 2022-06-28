@@ -1,0 +1,119 @@
+$sideBarWidth: 250px;
+$sideAnimationDuration: 0.3s;
+
+.sideMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  width: $sideBarWidth;
+  height: 100%;
+  background-color: white;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+
+  &--left {
+    border-right: 1px solid #ccc;
+    left: calc($sideBarWidth * -1);
+    animation: to-right $sideAnimationDuration linear normal forwards;
+  }
+
+  &--right {
+    border-left: 1px solid #ccc;
+    right: calc($sideBarWidth * -1);
+    animation: to-left $sideAnimationDuration linear normal forwards;
+  }
+
+  &--close-left {
+    animation: left-hide $sideAnimationDuration linear normal forwards;
+  }
+
+  &--close-right {
+    animation: right-hide $sideAnimationDuration linear normal forwards;
+  }
+
+  &__background {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    animation: fade-in $sideAnimationDuration linear normal forwards;
+
+    &--close {
+      animation: fade-out $sideAnimationDuration linear normal forwards;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes to-right {
+  0% {
+    left: calc($sideBarWidth * -1);
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes to-left {
+  0% {
+    right: calc($sideBarWidth * -1);
+  }
+
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes left-hide {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: calc($sideBarWidth * -1);
+  }
+}
+
+@keyframes right-hide {
+  0% {
+    right: 0;
+  }
+
+  100% {
+    right: calc($sideBarWidth * -1);
+  }
+}
+
+.cust-close:hover {
+  transform: scale(1.1);
+}
