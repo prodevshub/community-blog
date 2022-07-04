@@ -77,7 +77,6 @@
       bottom: 10px;
       font-size: $size10;
     }
-
   }
 
   .postOne-loading,
@@ -87,7 +86,6 @@
   .postThree3-loading,
   .postFour1-loading,
   .postFour2-loading {
-    background-color: rgba(97, 95, 95, 0.4);
     background-image: url(../../../public/img/ladybug.jpg);
     background-size: cover;
     background-position: center;
@@ -95,6 +93,7 @@
     position: relative;
     font-size: $size17;
     text-align: left;
+    animation: loader 3s infinite;
 
     .postOne__cover,
     .postTwo__cover,
@@ -127,6 +126,25 @@
     }
   }
 
+  .postOne-loading::before,
+  .postTwo-loading::before,
+  .postThree1-loading::before,
+  .postThree2-loading::before,
+  .postThree3-loading::before,
+  .postFour1-loading::before,
+  .postFour2-loading::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: rgba(238, 238, 238, 0.7);
+    background: linear-gradient(110deg, rgba(213, 213, 213, 0.7) 8%, rgba(174, 174, 174, 0.7) 18%, rgba(213, 213, 213, 0.7) 33%);
+    background-size: 200% 100%;
+    animation: shine 1.5s linear infinite;
+  }
+
   .postOne:hover,
   .postTwo:hover,
   .postThree1:hover,
@@ -134,7 +152,6 @@
   .postThree3:hover,
   .postFour1:hover,
   .postFour2:hover {
-
     .postOne__cover,
     .postTwo__cover,
     .postThree1__cover,
@@ -287,12 +304,10 @@
 
 ////////tablet layout/////////
 @include tablet {
-
   .postOne-wrapper,
   .postTwo-wrapper,
   .postThree-wrapper,
   .postFour-wrapper {
-
     .postOne,
     .postOne-loading {
       grid-template-columns: repeat(6, 1fr);
@@ -432,12 +447,10 @@
 
 /////////mobile layout/////////
 @include mobile-large {
-
   .postOne-wrapper,
   .postTwo-wrapper,
   .postThree-wrapper,
   .postFour-wrapper {
-
     .postOne,
     .postOne-loading,
     .postTwo,
@@ -477,5 +490,22 @@
         margin: 0;
       }
     }
+  }
+}
+
+// @keyframes loader {
+//   0% {
+//     opacity: 0.9;
+//   }
+//   50% {
+//     opacity: 0.5;
+//   }
+//   100% {
+//     opacity: 0.9;
+//   }
+// }
+@keyframes shine {
+  to {
+    background-position-x: -200%;
   }
 }

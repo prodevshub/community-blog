@@ -52,9 +52,19 @@ const PostsWrapper = ({
         )
     }
 }
+
 PostsWrapper.propTypes = {
-    posts: PropTypes.arrayOf(PropTypes.object),
+    posts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired,
+        imageTitle: PropTypes.string.isRequired,
+        createdAt: PropTypes.instanceOf(Date).isRequired,
+        updatedAt: PropTypes.instanceOf(Date).isRequired
+    })),
     isLoading: PropTypes.bool,
     skeletonPosts: PropTypes.number
 }
+
 export default PostsWrapper
