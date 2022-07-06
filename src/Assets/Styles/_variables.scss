@@ -1,5 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Bitter:wght@800&family=Bitter:wght@500&family=Kalam&family=Kaushan+Script&display=swap');
 
+$em-mobile-l: 35em; // 560px
+$em-tablet: 48em; // 768px
+$em-desktop: 64em; // 1024px
+
+//breakpoints
+$mq-mobile-large: 'screen and (max-width:'+ $em-mobile-l +' )'; // Up to 560px / base value of 16px
+$mq-tablet: 'screen and (max-width: ' + $em-tablet + ' )'; // Up to 768px / base value of 16px
+$mq-desktop: 'screen and (max-width: ' + $em-desktop + ')'; //Up to 1024px / base value of 16px
+
+@mixin mobile-large {
+    @media #{$mq-mobile-large} {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media #{$mq-tablet} {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media #{$mq-desktop} {
+      @content;
+    }
+  }
+
 //colors
 $white: #fff;
 
@@ -8,6 +35,8 @@ $fontBitter: 'Bitter', serif;
 $fontKalam: 'Kalam', cursive;
 
 //font sizes
+$size65: 6.5rem;
+$size28: 2.8rem;
 $size24: 2.4rem;
 $size20: 2rem;
 $size17: 1.7rem;
@@ -15,4 +44,5 @@ $size15: 1.5rem;
 $size14: 1.4rem;
 $size12: 1.2rem;
 $size10: 1rem;
+$size08: 0.8rem;
 $size06: 0.6rem;
