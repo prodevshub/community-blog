@@ -1,9 +1,10 @@
 import './Header.scss'
 import React, { useEffect, useRef } from 'react'
-import { NavLink } from 'react-router-dom'
 
 const Header = ({
-    paddingTop, paddingBottom, color, fontSize, fontFamily, primary, height, width
+    height,
+    color,
+    fontSize
 }) => {
     const stickyHeader = useRef(null)
     useEffect(() => {
@@ -19,63 +20,35 @@ const Header = ({
     })
     return (
         <header
-            style={{
-                paddingBottom, paddingTop, color, fontSize, fontFamily
-            }}
+            style={{ height }}
             className="header"
             ref={stickyHeader}
         >
-            <div
-                style={{
-                    color, fontSize, fontFamily
-                }}
-                className="header__logo"
-            >
+            <div className="header__logo">
                 <a href="#">
-                    <svg
-                        fill={{ color }}
-                        style={{
-                            height, width
-                        }}
-                    >
+                    <svg>
                         <use xlinkHref="#clower" />
                     </svg>
                 </a>
             </div>
             <div
-                style={{
-                    color, fontSize
-                }}
                 className="header__title"
+                style={{
+                    color,
+                    fontSize
+                }}
             >
-                <span
-                    style={{
-                        color, fontSize, fontFamily
-                    }}
-                    className="header__title--italic"
-                >
+                <span className="header__title--italic">
                     Lucky
                     {' '}
-
                 </span>
                 community blog
                 <hr />
-                <span
-                    style={{
-                        color, fontSize, fontFamily
-                    }}
-                    className="header__title-description"
-                >
+                <span className="header__title-description">
                     to notice, observe and enjoy...
-
                 </span>
             </div>
-            <div
-                style={{
-                    color
-                }}
-                className="header__nav"
-            >
+            <div className="header__nav">
                 <a href="#menu">
                     &#9776;
                 </a>
@@ -83,4 +56,5 @@ const Header = ({
         </header>
     )
 }
+
 export default Header
