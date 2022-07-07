@@ -1,5 +1,4 @@
-$sideBarWidth: 250px;
-$sideAnimationDuration: 0.3s;
+@import "../../Assets/Styles/variables";
 
 .sideMenu {
   display: flex;
@@ -11,6 +10,7 @@ $sideAnimationDuration: 0.3s;
   background-color: white;
   -webkit-transform: translateX(0);
   transform: translateX(0);
+  z-index: 1;
 
   &--left {
     border-right: 1px solid #ccc;

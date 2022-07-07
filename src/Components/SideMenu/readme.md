@@ -4,9 +4,9 @@ Example in Home.jsx component:
 
 `import { useState } from'react'`
 
-`import Buttonfrom'../Components/Button'`
+`import Button from'../Components/Button'`
 
-`import SideMenufrom'../Components/SideMenu/SideMenu'`
+`import SideMenu from'../Components/SideMenu/SideMenu'`
 
 `const Home= () => {`
 
