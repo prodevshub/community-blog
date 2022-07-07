@@ -1,0 +1,511 @@
+@import "../../Assets/Styles/variables";
+
+.postOne-wrapper,
+.postTwo-wrapper,
+.postThree-wrapper,
+.postFour-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 1% 2%;
+  width: 96%;
+  column-gap: $size14;
+  row-gap: $size14;
+  background-color: $white;
+  padding: 10px;
+  z-index: 0;
+
+  .postOne,
+  .postTwo,
+  .postThree1,
+  .postThree2,
+  .postThree3,
+  .postFour1,
+  .postFour2 {
+    background-color: rgba(97, 95, 95, 0.6);
+    position: relative;
+    font-size: $size17;
+    text-align: left;
+
+    &__img {
+      height: inherit;
+      width: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    &__cover {
+      display: none;
+      background-color: rgba(58, 93, 14, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: inherit;
+      width: 100%;
+      color: $white;
+      text-decoration: none;
+
+      span {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 45%;
+      }
+    }
+
+    &__title-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      width: calc(100% - $size15 - $size15);
+      font-family: $fontBitter;
+      color: $white;
+      padding-left: $size15;
+      padding-right: $size15;
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 1s linear 0s, opacity 0.5s;
+    }
+
+    &__title {
+      height: 25%;
+      overflow: hidden;
+    }
+
+    &__title-date {
+      position: absolute;
+      bottom: 10px;
+      font-size: $size10;
+    }
+  }
+
+  .postOne-loading,
+  .postTwo-loading,
+  .postThree1-loading,
+  .postThree2-loading,
+  .postThree3-loading,
+  .postFour1-loading,
+  .postFour2-loading {
+    background-image: url(../../../public/img/ladybug.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    font-size: $size17;
+    text-align: left;
+    animation: loader 3s infinite;
+
+    .postOne__cover,
+    .postTwo__cover,
+    .postThree1__cover,
+    .postThree2__cover,
+    .postThree3__cover,
+    .postFour1__cover,
+    .postFour2__cover {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: inherit;
+      width: 100%;
+    }
+
+    .postOne__title-wrapper,
+    .postTwo__title-wrapper,
+    .postThree1__title-wrapper,
+    .postThree2__title-wrapper,
+    .postThree3__title-wrapper,
+    .postFour1__title-wrapper,
+    .postFour2__title-wrapper {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: calc(100% - $size15 - $size15);
+      background-color: transparent;
+    }
+  }
+
+  .postOne-loading::before,
+  .postTwo-loading::before,
+  .postThree1-loading::before,
+  .postThree2-loading::before,
+  .postThree3-loading::before,
+  .postFour1-loading::before,
+  .postFour2-loading::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: rgba(238, 238, 238, 0.7);
+    background: linear-gradient(110deg, rgba(213, 213, 213, 0.7) 8%, rgba(174, 174, 174, 0.7) 18%, rgba(213, 213, 213, 0.7) 33%);
+    background-size: 200% 100%;
+    animation: shine 1.5s linear infinite;
+  }
+
+  .postOne:hover,
+  .postTwo:hover,
+  .postThree1:hover,
+  .postThree2:hover,
+  .postThree3:hover,
+  .postFour1:hover,
+  .postFour2:hover {
+    .postOne__cover,
+    .postTwo__cover,
+    .postThree1__cover,
+    .postThree2__cover,
+    .postThree3__cover,
+    .postFour1__cover,
+    .postFour2__cover {
+      display: block;
+      z-index: 1;
+      font-weight: 500;
+    }
+
+    .postOne__title-wrapper,
+    .postTwo__title-wrapper,
+    .postThree1__title-wrapper,
+    .postThree2__title-wrapper,
+    .postThree3__title-wrapper,
+    .postFour1__title-wrapper,
+    .postFour2__title-wrapper {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear 1s, opacity 0.5s;
+    }
+  }
+
+  .postOne,
+  .postOne-loading {
+    width: 100%;
+    height: 25rem;
+    grid-column: span 6;
+
+    &__title-wrapper {
+      height: 45%;
+    }
+
+    &__title {
+      height: 4.1rem;
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postTwo,
+  .postTwo-loading {
+    width: 100%;
+    height: 20rem;
+    grid-column: span 3;
+
+    &__title-wrapper {
+      height: 45%;
+    }
+
+    &__title {
+      height: 4.1rem;
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postThree1,
+  .postThree1-loading {
+    width: 100%;
+    height: 20rem;
+    grid-column: span 2;
+
+    &__title-wrapper {
+      height: 45%;
+    }
+
+    &__title {
+      height: 4.1rem;
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postThree2,
+  .postThree2-loading,
+  .postThree3,
+  .postThree3-loading {
+    width: 100%;
+    height: 20rem;
+    grid-column: span 2;
+
+    &__title-wrapper {
+      height: 45%;
+    }
+
+    &__title {
+      height: 4.1rem;
+    }
+
+    &__img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .postFour1,
+  .postFour1-loading {
+    height: 15rem;
+    grid-column: span 4;
+
+    &__title-wrapper {
+      height: 50%;
+    }
+
+    &__title {
+      height: $size20;
+      margin-top: $size12;
+    }
+
+    &__title-date {
+      margin: 0;
+      bottom: $size06;
+      font-size: $size10;
+    }
+  }
+
+  .postFour2,
+  .postFour2-loading {
+    height: 15rem;
+    grid-column: span 2;
+
+    &__title-wrapper {
+      height: 50%;
+    }
+
+    &__title {
+      height: $size20;
+      margin-top: $size12;
+    }
+
+    &__title-date {
+      margin: 0;
+      bottom: $size06;
+      font-size: $size10;
+    }
+  }
+}
+
+////////tablet layout/////////
+@include tablet {
+  .postOne-wrapper,
+  .postTwo-wrapper,
+  .postThree-wrapper,
+  .postFour-wrapper {
+    .postOne,
+    .postOne-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
+      grid-column: span 6;
+
+      &__img {
+        height: 100%;
+      }
+
+      &__title-wrapper {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        height: 35%;
+      }
+    }
+
+    .postTwo,
+    .postTwo-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
+      height: 20rem;
+      grid-column: span 3;
+
+      &__img {
+        height: 100%;
+      }
+
+      &__title-wrapper {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        height: 30%;
+        padding-top: 0;
+      }
+
+      &__title {
+        height: $size20;
+      }
+
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
+      }
+    }
+
+    .postThree1,
+    .postThree1-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
+      grid-column: span 6;
+      width: 100%;
+      height: 16rem;
+
+      &__img {
+        height: 100%;
+      }
+
+      &__title-wrapper {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        height: 40%;
+        padding-top: 0;
+      }
+
+      &__title {
+        height: $size20;
+      }
+
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
+      }
+    }
+
+    .postThree2,
+    .postThree2-loading,
+    .postThree3,
+    .postThree3-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size15;
+      grid-column: span 3;
+      width: 100%;
+      height: 16rem;
+
+      &__img {
+        height: 100%;
+      }
+
+      &__title-wrapper {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        height: 40%;
+        padding-top: 0;
+      }
+
+      &__title {
+        height: $size20;
+      }
+
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
+      }
+    }
+
+    .postFour1,
+    .postFour1-loading,
+    .postFour2,
+    .postFour2-loading {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: $size12;
+      grid-column: span 3;
+
+      &__img {
+        height: 100%;
+      }
+
+      &__title-wrapper {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        padding-bottom: $size10;
+        height: 35%;
+      }
+
+      &__title {
+        margin: 0;
+        height: $size28;
+      }
+
+      &__title-date {
+        font-size: $size08;
+        margin: 0;
+      }
+    }
+  }
+}
+
+/////////mobile layout/////////
+@include mobile-large {
+  .postOne-wrapper,
+  .postTwo-wrapper,
+  .postThree-wrapper,
+  .postFour-wrapper {
+    .postOne,
+    .postOne-loading,
+    .postTwo,
+    .postTwo-loading,
+    .postThree1,
+    .postThree1-loading,
+    .postThree2,
+    .postThree2-loading,
+    .postThree3,
+    .postThree3-loading,
+    .postFour1,
+    .postFour1-loading,
+    .postFour2,
+    .postFour2-loading {
+      font-size: $size14;
+      grid-template-columns: repeat(6, 1fr);
+      grid-column: span 6;
+      height: 20rem;
+
+      &__img {
+        height: 100%;
+      }
+
+      &__title-wrapper {
+        width: calc(100% - $size20 - $size20);
+        padding: $size20;
+        padding-bottom: 0;
+        height: 40%;
+      }
+
+      &__title {
+        height: $size17;
+      }
+
+      &__title-date {
+        bottom: $size10;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// @keyframes loader {
+//   0% {
+//     opacity: 0.9;
+//   }
+//   50% {
+//     opacity: 0.5;
+//   }
+//   100% {
+//     opacity: 0.9;
+//   }
+// }
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
