@@ -1,4 +1,5 @@
-import { React, useState } from 'react'
+/* eslint-disable react/jsx-props-no-spreading */
+import { React } from 'react'
 import Header from './Header'
 
 export default {
@@ -12,14 +13,9 @@ const Template = (args) => (
     </div>
 )
 
-export const Arguments = Template.bind({})
-Arguments.args = {
-    primary: true,
+export const HeaderStory = Template.bind({})
+HeaderStory.args = {
     fontSize: '2rem',
-    fontFamily: 'serif',
     color: 'white',
-    paddingTop: '1%',
-    paddingBottom: '5%',
-    height: '55px',
-    width: '55px'
+    height: '55px'
 }
