@@ -31,5 +31,5 @@ yarn-error.log*
 .firebase/
 
 # VScode
-settings.json
+.vscode/
 
