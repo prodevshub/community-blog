@@ -8,12 +8,12 @@ const ThreePosts = ({
 }) => (
     <div className="postThree-wrapper">
         {isLoading ? posts.map((post, index) => (<div className={`postThree${index + 1}-loading`} key={index} />)) : posts.map(({
-            id, title, imageURL, imageTitle, updatedAt
+            id, title, imageUrl, imageTitle, updatedAt
         }, index) => (
             <div className={`postThree${index + 1}`} key={id}>
                 <img
                     className={`postThree${index + 1}__img`}
-                    src={imageURL}
+                    src={`https://${imageUrl}`}
                     alt={imageTitle}
                 />
                 <div className={`postThree${index + 1}__title-wrapper`}>

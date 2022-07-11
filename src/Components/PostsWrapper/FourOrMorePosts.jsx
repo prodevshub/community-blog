@@ -15,14 +15,14 @@ const FourOrMorePosts = ({
             return (<div className={`postFour${columnCounter}-loading`} key={index} />)
         })
             : posts.map(({
-                id, title, imageURL, imageTitle, updatedAt
+                id, title, imageUrl, imageTitle, updatedAt
             }, index) => {
                 indexCheck(index)
                 return (
                     <div className={`postFour${columnCounter}`} key={id}>
                         <img
                             className={`postFour${columnCounter}__img`}
-                            src={imageURL}
+                            src={`https://${imageUrl}`}
                             alt={imageTitle}
                         />
                         <div className={`postFour${columnCounter}__title-wrapper`}>

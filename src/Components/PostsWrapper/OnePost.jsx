@@ -8,12 +8,12 @@ const OnePost = ({
 }) => (
     <div className="postOne-wrapper">
         {isLoading ? (<div className="postOne-loading" key="0" />) : posts.map(({
-            id, title, imageURL, imageTitle, updatedAt
+            id, title, imageUrl, imageTitle, updatedAt
         }) => (
             <div className="postOne" key={id}>
                 <img
                     className="postOne__img"
-                    src={imageURL}
+                    src={`https://${imageUrl}`}
                     alt={imageTitle}
                 />
                 <div className="postOne__title-wrapper">

@@ -5,19 +5,23 @@ import PostsApi from '../api/contentful.api'
 import Placeholder from '../Components/Placeholder'
 import PostsWrapper from '../Components/PostsWrapper'
 
-const posts = []
-// const posts=new PostsApi().getPosts()
+let postsWrappers = []
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
-        !posts.length ? setIsLoading(true) : setIsLoading(false)
-    }, [posts])
+        const posts = new PostsApi().getPosts().then(
+            (value) => {
+                postsWrappers = [...value]
+                !postsWrappers.length ? setIsLoading(true) : setIsLoading(false)
+            }
+        )
+    }, [postsWrappers])
     return (
         <>
             <h2>Home Page</h2>
             {
-                !isLoading ? (<PostsWrapper posts={posts} isLoading={isLoading} />) : (<Placeholder skeletonPosts={4} isLoading={isLoading} />)
+                !isLoading ? postsWrappers.map((post, id) => <PostsWrapper posts={post} isLoading={isLoading} key={id} />) : (<Placeholder skeletonPosts={4} isLoading={isLoading} />)
             }
         </>
     )
