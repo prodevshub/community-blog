@@ -1,11 +1,11 @@
 import { ContentfulResponseMapper } from './contenful.mappper'
-import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from '../lib/constants'
+import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_HOMEPAGE_ID } from '../lib/constants'
 
 const contentful = require('contentful')
 
 class PostsApi {
     constructor() {
-        this.postWrapper = []
+        this.wrapperPosts = []
         this.mapper = new ContentfulResponseMapper()
         this.client = contentful.createClient({
             space: CONTENTFUL_SPACE_ID,
@@ -14,11 +14,19 @@ class PostsApi {
     }
 
     getPosts = async () => {
-        if (!this.postWrapper.length) {
-            const postsResponse = await this.client.getEntry('7ygbRyPaHM2bdGQDeny0Nf')
-            this.postWrapper = this.mapper.postsResponseToPostList(postsResponse)
+        if (!this.wrapperPosts.length) {
+            const pageWrapper = await this.client.getEntry(CONTENTFUL_HOMEPAGE_ID)
+            const { postwrapers } = pageWrapper.fields
+
+            const wrapperList = this.mapper.wrappersToWrapperList(postwrapers)
+
+            const promises = wrapperList.map(({ id }) => this.client.getEntry(id))
+            const wrapperResponses = await Promise.all(promises)
+            this.wrapperPosts = wrapperResponses.map(this.mapper.postsResponseToPostList)
+
+            return this.wrapperPosts
         }
-        return this.postWrapper
+        return this.wrapperPosts
     }
 }
 
