@@ -6,7 +6,15 @@ import ThreePosts from '../PostsWrapper/ThreePosts'
 import FourOrMorePosts from '../PostsWrapper/FourOrMorePosts'
 
 const Placeholder = ({ skeletonPosts, isLoading }) => {
-    const [postState, setPostState] = useState(new Array(skeletonPosts).fill('loading'))
+    const [postState, setPostState] = useState(new Array(skeletonPosts).fill({
+        id: '0',
+        title: 'loading',
+        description: ['loading'],
+        imageUrl: '#',
+        imageTitle: '#',
+        createdAt: 'date',
+        updatedAt: 'new date'
+    }))
 
     switch (postState.length) {
     case 1:

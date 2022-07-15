@@ -25,7 +25,7 @@ const Header = ({
             ref={stickyHeader}
         >
             <div className="header__logo">
-                <a href="#">
+                <a href="/">
                     <svg>
                         <use xlinkHref="#clower" />
                     </svg>
