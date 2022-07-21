@@ -6,47 +6,35 @@ import ThreePosts from './ThreePosts'
 import TwoPosts from './TwoPosts'
 
 const PostsWrapper = ({
-    posts = [],
-    isLoading = true,
-    skeletonPosts = 4
+    posts,
+    isLoading
 }) => {
-    const [postState, setPostState] = useState(new Array(skeletonPosts).fill('loading'))
-
-    useEffect(() => {
-        !isLoading ? setPostState(posts) : setPostState(new Array(skeletonPosts).fill('loading'))
-    }, [isLoading])
-
-    switch (postState.length) {
-    case 0:
-        return (
-        // TODO:
-            <p>No Posts added</p>
-        )
+    switch (posts.length) {
     case 1:
         return (
             <OnePost
-                posts={postState}
+                posts={posts}
                 isLoading={isLoading}
             />
         )
     case 2:
         return (
             <TwoPosts
-                posts={postState}
+                posts={posts}
                 isLoading={isLoading}
             />
         )
     case 3:
         return (
             <ThreePosts
-                posts={postState}
+                posts={posts}
                 isLoading={isLoading}
             />
         )
     default:
         return (
             <FourOrMorePosts
-                posts={postState}
+                posts={posts}
                 isLoading={isLoading}
             />
         )
@@ -57,14 +45,13 @@ PostsWrapper.propTypes = {
     posts: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        description: PropTypes.arrayOf(PropTypes.shape).isRequired,
         imageUrl: PropTypes.string.isRequired,
         imageTitle: PropTypes.string.isRequired,
-        createdAt: PropTypes.instanceOf(Date).isRequired,
-        updatedAt: PropTypes.instanceOf(Date).isRequired
+        createdAt: PropTypes.string.isRequired,
+        updatedAt: PropTypes.string.isRequired
     })),
-    isLoading: PropTypes.bool,
-    skeletonPosts: PropTypes.number
+    isLoading: PropTypes.bool
 }
 
 export default PostsWrapper
