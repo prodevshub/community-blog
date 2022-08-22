@@ -8,12 +8,12 @@ const OnePost = ({
 }) => (
     <div className="postOne-wrapper">
         {isLoading ? (<div className="postOne-loading" key="0" />) : posts.map(({
-            id, title, imageURL, imageTitle, updatedAt
+            id, title, imageUrl, imageTitle, updatedAt
         }) => (
             <div className="postOne" key={id}>
                 <img
                     className="postOne__img"
-                    src={imageURL}
+                    src={`https://${imageUrl}`}
                     alt={imageTitle}
                 />
                 <div className="postOne__title-wrapper">
@@ -21,12 +21,12 @@ const OnePost = ({
                         {title}
                     </p>
                     <p className="postOne__title-date">
-                        {updatedAt}
+                        {updatedAt.slice(0, 10)}
                     </p>
                 </div>
                 <a
                     className="postOne__cover"
-                    href="#"
+                    href={`/post/:${id}`}
                 >
                     <span>Read more...</span>
                 </a>
@@ -39,11 +39,11 @@ OnePost.propTypes = {
     posts: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
+        description: PropTypes.arrayOf(PropTypes.shape).isRequired,
         imageUrl: PropTypes.string.isRequired,
         imageTitle: PropTypes.string.isRequired,
-        createdAt: PropTypes.instanceOf(Date).isRequired,
-        updatedAt: PropTypes.instanceOf(Date).isRequired
+        createdAt: PropTypes.string.isRequired,
+        updatedAt: PropTypes.string.isRequired
     })),
     isLoading: PropTypes.bool.isRequired
 }
